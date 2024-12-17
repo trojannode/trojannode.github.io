@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-27094.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Java修饰符abstract与static及final的精华总结_java</title>
+        <meta name="description" content="目录  修饰符abstract (抽象的)  一、abstract可以修饰类 二、abstract可以修饰方法  修饰符之static (静态的)   一、static可以修饰属性 二、static可" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+                        <a href="/"><span class="logo">Troja Nnode</span></a>
+                        <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Java修饰符abstract与static及final的精华总结_java</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">修饰符abstract (抽象的)</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">一、abstract可以修饰类</a></li> <li><a href="#_lab2_0_1" rel="nofollow">二、abstract可以修饰方法</a></li> </ul> <li><a href="#_label1" rel="nofollow">修饰符之static (静态的) </a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">一、static可以修饰属性</a></li> <li><a href="#_lab2_1_3" rel="nofollow">二、static可以修饰方法</a></li> <li><a href="#_lab2_1_4" rel="nofollow">三、static可以修饰初始化代码块</a></li> </ul> <li><a href="#_label2" rel="nofollow">修饰符之final (最终的)</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_5" rel="nofollow">一、final可以修饰变量</a></li> <li><a href="#_lab2_2_6" rel="nofollow">二、final可以修饰方法</a></li> <li><a href="#_lab2_2_7" rel="nofollow">三、final可以修饰属性</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>修饰符abstract (抽象的)</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>一、abstract可以修饰类</h3> <p>(1) 被abstract修饰的类称为抽象类<br />(2) 语法：</p> <blockquote> <p>          abstract class 类名{}</p> </blockquote> <p>(3) 特点：抽象类不能单独创建对象，但是可以声明引用</p> <blockquote> <p>          抽象类类名  引用名;</p> </blockquote> <p>(4) 抽象类可以定义成员变量和成员方法<br />(5) 抽象类有构造方法，用于创建子类对象时,jvm默认创建一个父类对象；<br />    抽象的构造方法应用在jvm创建父类对象时应用。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>二、abstract可以修饰方法</h3> <p>(1) 被asbtract修饰的方法被称为抽象方法<br />(2) 语法：</p> <blockquote> <p>    访问修饰符 abstract  返回值类型 方法名(形参列表);</p> </blockquote> <p>    注意：abstract和访问修饰符没有先后顺序要求<br />(3) 特点：抽象方法只有声明部分，没有方法的实现部分(连{}都没有，以 ; 结尾)<br />(4) 注意：抽象方法只能定义在抽象类中；但是抽象类中即可以定义抽象方法也可以定义非抽象方法</p> <p>抽象类的子类：</p> <p>(1) 语法：</p> <blockquote> <p>    class 子类类名 extends 抽象类类名{}</p> </blockquote> <p>(2) 要求：如果子类不想成为抽象类，则必须覆盖抽象类父类中的所有抽象方法(目的：将抽象方法实现部分补上)；<br />    如果子类没有覆盖父类中所有抽象方法，必须定义为抽象类，同时不能创建对象<br />(3) 应用：抽象类体现了多态的应用</p> <blockquote> <p>    抽象类类名 引用名 = new 子类类名();  // 父类型的引用存储了子类型的对象</p> </blockquote> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>修饰符之static (静态的) </h2> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>一、static可以修饰属性</h3> <p>(1) 被static修饰的属性称为静态属性、静态变量、类变量<br />    注意：成员变量分为：实例变量和静态变量(或是静态属性、类变量)<br />(2) 位置：定义在类以内，方法以外，被static修饰<br />(3) 语法：</p> <blockquote> <p>         访问修饰符 static 数据类型 变量名;<br />         访问修饰符 static 数据类型 变量名=值;</p> </blockquote> <p>    注意：访问修饰符和static之间没有先后顺序要求，但是都必须在数据类型的前面<br />(4) 特点：静态属性基于类而存在，和创建多少对象无关，被所有对象都共享<br />(5) 使用：<br />        a. 通过 对象名.静态属性名<br />        b. 直接通过 类名.静态属性名  ——&gt;建议</p> <p>    注意：实例变量必须通过 对象名.实例变量名 进行访问</p> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>二、static可以修饰方法</h3> <p>(1) 被static修饰的方法称为静态方法<br />(2) 语法：</p> <blockquote> <p>    访问修饰符 static 返回值类型 方法名(形参列表){<br />            // 方法实现、方法体<br />    }</p> </blockquote> <p>    注意：访问修饰符和 static之间没有先后顺序要求    <br />(3) 使用：<br />    a. 直接通过 类名.静态方法名(实参); --》建议<br />    b. 通过对象名.静态方法(实参); --&gt;不建议<br />(4) 静态方法语法细节：<br />    a. 静态方法中只能访问本类的静态成员(静态属性和静态方法)<br />    b. 静态方法中不能直接访问本类的非静态成员(实例变量+非静态方法)<br />    c. 静态方法中不能this/super关键字<br />    d. 静态方法能被子类继承<br />    e. 静态方法只能被静态方法覆盖，静态方法没有体现多态的应用<br />(5) 静态方法应用场景：通常将工具类中方法设置为静态方法，为了方便使用者调用</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220420/f55547b929fc642ae7c913c562ceaa02.jpg"></p> <p class="maodian"><a name="_lab2_1_4" rel="nofollow"></a></p> <h3>三、static可以修饰初始化代码块</h3> <p>(1) 被static修饰初始化代码块称为静态代码块<br />(2) 静态代码块的位置：定义在类以内，方法以为，被static修饰的{}</p> <blockquote> <p>        class 类名{<br />               static{<br />                      // 静态代码块<br />               }<br />        }</p> </blockquote> <p>(3) 作用：在类加载的时候，按照和静态属性定义的先后顺序完成对静态属性的初始化工作    <br />(4) 类加载：<br />    a. 概念：jvm第一次使用一个类的时候，通过classPath找到类对应的.class文件；<br />            并且对.class文件进行读取该类的信息；<br />            (包名、类名、父类、属性、构造方法、成员方法等)；<br />            将读取信息保存到jvm内存中，一个类只一次类加载。<br />            <br />    b. 类加载的时机：(什么叫jvm第一次使用一个类)<br />           I. 第一个访问该类静态成员(静态属性和静态方法)<br />           II. 第一次创建该类对象：先完成类加载；再完成对象的创建<br />           III. 子类类加载，先导致其父类类加载：先加在父类，再加载子类<br />             ① 第一次调用子类静态属性或静态方法<br />             ② 第一次创建子类对象：先进行类加载，再完成对象的创建<br />                   加载：先完成父类的类加载，再完成子类的类加载<br />           <br />                   创建对象 ：先完成父类对象的创建，再子类对象的创建</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>修饰符之final (最终的)</h2> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>一、final可以修饰变量</h3> <p>final可以修饰变量(局部变量、成员变量—&gt;实例变量和静态变量)</p> <p>(1) 特点：被final修饰的变量，作用范围内常量，只允许一次赋值，可以被发多使用 <br />    注意：final修饰变量一旦赋值，不能修改</p> <p>(2) 语法：</p> <blockquote> <p>    访问修饰符 final 数据类型 变量名 = 值;</p> </blockquote> <p>(3) final修饰的实例不再具有默认值，开发人员对其赋值的机会如下:<br />        a. 定义的时候对其初始化，赋值</p> <blockquote> <p>                  final int a = 3;</p> </blockquote> <p>          b. 利用构造方法完成赋值</p> <blockquote> <p>                   class A{<br />                       final int a ;<br />                       public A(int a){<br />                             this.a=a;<br />                       }<br />                   }</p> </blockquote> <p>(4) final修饰的静态变量不再具有默认值，开发人员对其赋值的机会如下：<br />        a. 在定义时对其初始化，赋值<br />        b. 利用静态代码块对其初始化</p> <blockquote> <p>                class A{<br />                    final static int n;<br />                    static{<br />                        n = 5;<br />                    }<br />                }</p> </blockquote> <p>(5) final修饰的引用，代表引用中存储对象不能改变</p> <p class="maodian"><a name="_lab2_2_6" rel="nofollow"></a></p> <h3>二、final可以修饰方法</h3> <p>可以被子类继承，但是不允许子类覆盖.</p> <p class="maodian"><a name="_lab2_2_7" rel="nofollow"></a></p> <h3>三、final可以修饰属性</h3> <p>被final修饰的类不能被继承，即没有子类.</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27093.htm">win11系统怎么查看硬盘型号</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-trojan-node.htm" title="11月16日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接">11月16日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="10月17日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接">10月17日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-latest-trojan-node.htm" title="9月3日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">9月3日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-trojan-node-github.htm" title="10月5日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">10月5日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-trojan-node.htm" title="10月24日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接">10月24日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-trojan-node-share.htm" title="11月10日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接">11月10日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20631.htm" title="linux系统改ip地址 永久生效,Linux修改IP永久生效">linux系统改ip地址 永久生效,Linux修改IP永久生效</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe-links.htm" title="10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-free-subscribe-node.htm" title="9月12日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">9月12日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27093.htm" title="win11系统怎么查看硬盘型号">win11系统怎么查看硬盘型号</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
