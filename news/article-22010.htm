@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Kafka启动报错处理：/opt/module/kafka/bin/kafka-run-class.sh: 第 258 行:exec: java: 未找到</title>
         <meta name="description" content="今天在学习Kafka的时候，写了个脚本，用于集群中kafka的群起。发现启动不了。???? 去掉-daemon参数后，继续启动，看到了它报的错误(日志中也有显示)。找不到java？？？ 看了相关资料后" />
-        <link rel="icon" href="__ADDON__/img/trojannode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
@@ -70,7 +70,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>今天在学习Kafka的时候，写了个脚本，用于集群中kafka的群起。发现启动不了。????</p> <p>去掉-daemon参数后，继续启动，看到了它报的错误(日志中也有显示)。找不到java？？？<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220823/03ec2e0cde80da495b98541daab6cabe.jpg" alt="Kafka启动报错处理：/opt/module/kafka/bin/kafka-run-class.sh: 第 258 行:exec: java: 未找到"></p> <p>看了相关资料后，知道了，原来是Kafka的默认<code>/usr/bin/java</code>路径与我们实际的<code>$JAVA_HOME/bin/java</code>路径不一致导致的。<br /> .<br /> 这里我们有两种修改方式</p> <ul> <li>修改我们的实际路径(太麻烦，而且可能会引起其它配置的变化，我大数据有些配置中直接使用JAVA_HOME的实际路径，没有使用环境变量)</li> <li>设置一个软连接就可以了</li> </ul> <p><strong>这里用第二种方式就行了</strong></p> <p>在窗口输入</p> <pre><code class="prism language-bash"><span class="token keyword">echo</span><span class="token variable">$JAVA_HOME</span></code></pre> <p>查看我们的JAVA_HOME路径，下面会用到。</p> <p>建立软连接</p> <pre><code class="prism language-shell"><span class="token comment"># ln -s $JAVA_HOME/bin/java  /usr/bin/java</span><span class="token function">ln</span> -s /opt/module/jdk1.8.0_144/bin/java /usr/bin/java</code></pre> <p>然后重新尝试就可以了！！！</p> <p></p> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>今天在学习Kafka的时候，写了个脚本，用于集群中kafka的群起。发现启动不了。????</p> <p>去掉-daemon参数后，继续启动，看到了它报的错误(日志中也有显示)。找不到java？？？<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220823/03ec2e0cde80da495b98541daab6cabe.jpg" alt="Kafka启动报错处理：/opt/module/kafka/bin/kafka-run-class.sh: 第 258 行:exec: java: 未找到"></p> <p>看了相关资料后，知道了，原来是Kafka的默认<code>/usr/bin/java</code>路径与我们实际的<code>$JAVA_HOME/bin/java</code>路径不一致导致的。<br /> .<br /> 这里我们有两种修改方式</p> <ul> <li>修改我们的实际路径(太麻烦，而且可能会引起其它配置的变化，我大数据有些配置中直接使用JAVA_HOME的实际路径，没有使用环境变量)</li> <li>设置一个软连接就可以了</li> </ul> <p><strong>这里用第二种方式就行了</strong></p> <p>在窗口输入</p> <pre><code class="prism language-bash"><span class="token keyword">echo</span><span class="token variable">$JAVA_HOME</span></code></pre> <p>查看我们的JAVA_HOME路径，下面会用到。</p> <p>建立软连接</p> <pre><code class="prism language-shell"><span class="token comment"># ln -s $JAVA_HOME/bin/java  /usr/bin/java</span><span class="token function">ln</span> -s /opt/module/jdk1.8.0_144/bin/java /usr/bin/java</code></pre> <p>然后重新尝试就可以了！！！</p> <p></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-21547.htm">动物医院大众点评评语大全图片 动物医院大众点评100字通用评论</a></p>
                                         <p>下一个：<a href="/news/article-22011.htm">vue elementui点击按钮新增输入框</a></p>
@@ -83,16 +84,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-19718.htm" title="苏州赠送狗狗（苏州赠送狗狗多少钱）">苏州赠送狗狗（苏州赠送狗狗多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-node-share.htm" title="8月15日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">8月15日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-today-trojan-node.htm" title="9月23日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">9月23日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-trojan-node-share.htm" title="9月16日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">9月16日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe-links.htm" title="10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">10月7日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21092.htm" title="宠物零食加工厂要投资多少亿 宠物零食加工厂要投资多少亿元">宠物零食加工厂要投资多少亿 宠物零食加工厂要投资多少亿元</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="11月21日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">11月21日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23397.htm" title="Spring 源码BeanFactory使用的准备及自定义属性值解析器">Spring 源码BeanFactory使用的准备及自定义属性值解析器</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-node-subscribe.htm" title="12月16日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接">12月16日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share-links.htm" title="12月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">12月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-free-trojan-node.htm" title="9月26日 | Trojan节点订阅每天更新22.9M/S免费节点订阅链接">9月26日 | Trojan节点订阅每天更新22.9M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-8-19-trojan-github.htm" title="8月19日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">8月19日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-high-speed-nodes.htm" title="10月30日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接">10月30日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-trojan-node-share.htm" title="8月10日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">8月10日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-trojan-node.htm" title="9月15日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">9月15日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-trojan-github.htm" title="9月24日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">9月24日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-1-trojan-node-share.htm" title="9月1日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">9月1日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-trojan-node-share.htm" title="11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="11月17日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">11月17日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -104,7 +105,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -132,6 +133,15 @@
         <div class="container d-md-flex py-4">
             <div class="me-md-auto text-center text-md-start">
                 <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
                     <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
                 </div>
             </div>
