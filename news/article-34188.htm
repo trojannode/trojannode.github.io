@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-34188.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>如何过滤掉MySQL返回的结果集的行中的重复项？</title>
+        <meta name="description" content="通过在SELECT子句中使用DISTINCT关键字，这是可能的。DISTINCT适用于SELECT子句中指定的所有数据字段的组合。 示例 我们在表'Student'上应用了DISTINCT关键字，如下" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+                        <a href="/"><span class="logo">Troja Nnode</span></a>
+                        <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>如何过滤掉MySQL返回的结果集的行中的重复项？</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>通过在SELECT子句中使用DISTINCT关键字，这是可能的。DISTINCT适用于SELECT子句中指定的所有数据字段的组合。</p> <h2>示例</h2> <p>我们在表'Student'上应用了DISTINCT关键字，如下所示：</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;student;  +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;17&nbsp;&nbsp;&nbsp;|&nbsp;Raman&nbsp;&nbsp;&nbsp;|&nbsp;Shimla&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+  5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;Address&nbsp;from&nbsp;student;  +---------+ |&nbsp;Address&nbsp;| +---------+ |&nbsp;Delhi&nbsp;&nbsp;&nbsp;| |&nbsp;Mumbai&nbsp;&nbsp;| |&nbsp;Shimla&nbsp;&nbsp;| |&nbsp;Jaipur&nbsp;&nbsp;| +---------+  4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;*&nbsp;from&nbsp;student;  +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;17&nbsp;&nbsp;&nbsp;|&nbsp;Raman&nbsp;&nbsp;&nbsp;|&nbsp;Shimla&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+  5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;name&nbsp;from&nbsp;student;  +---------+ |&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| +---------+ |&nbsp;Gaurav&nbsp;&nbsp;| |&nbsp;Aarav&nbsp;&nbsp;&nbsp;| |&nbsp;Harshit&nbsp;| |&nbsp;Raman&nbsp;&nbsp;&nbsp;| +---------+  4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33716.htm">猫三联打几针多少钱（猫三联打三针还是两针）</a></p>
+                                        <p>下一个：<a href="/news/article-34192.htm">动物接种疫苗的好处有哪些方面的内容和方法（动物疫苗的作用）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-trojan-node-github.htm" title="9月5日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">9月5日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-high-speed-nodes.htm" title="8月12日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">8月12日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-today-trojan-node.htm" title="11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-trojan-node-github.htm" title="10月25日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接">10月25日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-trojan-node-github.htm" title="10月5日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">10月5日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-trojan-node-github.htm" title="10月6日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">10月6日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-20-trojan-windows.htm" title="8月20日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">8月20日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-node-subscribe-links.htm" title="9月25日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">9月25日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19259.htm" title="动物防疫站给猫打针免费吗现在（动物防疫站给猫打针免费吗现在还能打吗）">动物防疫站给猫打针免费吗现在（动物防疫站给猫打针免费吗现在还能打吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-node-share-links.htm" title="11月3日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">11月3日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
