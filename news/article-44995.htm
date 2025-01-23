@@ -2,21 +2,22 @@
 <html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://trojannode.github.io" />
+        <link rel="canonical" href="https://trojannode.github.io/news/article-44995.htm" />
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>2024-12归档 - 第9页 - TrojanNode免费节点官网</title>
-        <meta name="keywords" content="2024-12归档TrojanNode免费节点官网" />
-        <meta name="description" content="2024-12归档，当前是第9页" />
+    <title>自定义指令拖拽el-dialog</title>
+        <meta name="description" content="vue项目中使用el-dialog弹框时会提一些大大小小的要求，比如需要再窗口中拖拽弹窗。现在使用自定义指令的形式来实现拖拽功能。 一、自定义指令拖拽代码 export default {   bin" />
         <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
 
     <meta name="author" content="TrojanNode免费节点官网">
-    <meta property="og:type" content="webpage" />
-    <meta property="og:url" content="https://trojannode.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-44995.htm" />
     <meta property="og:site_name" content="TrojanNode免费节点官网" />
-    <meta property="og:title" content="2024-12归档 - 第9页 - TrojanNode免费节点官网" />
-    <meta property="og:image" content="/assets/website/img/trojannode/favicon.ico" />
-        <meta property="og:description" content="2024-12归档，当前是第9页" />
+    <meta property="og:title" content="自定义指令拖拽el-dialog" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/711d0629d5101a5db517736e1157b7f8.webp" />
+        <meta property="og:release_date" content="2025-01-23T10:41:07" />
+    <meta property="og:updated_time" content="2025-01-23T10:41:07" />
+        <meta property="og:description" content="vue项目中使用el-dialog弹框时会提一些大大小小的要求，比如需要再窗口中拖拽弹窗。现在使用自定义指令的形式来实现拖拽功能。 一、自定义指令拖拽代码 export default {   bin" />
         
     <meta name="applicable-device" content="pc,mobile" />
     <meta name="renderer" content="webkit" />
@@ -25,7 +26,7 @@
     <meta name="robots" content="max-image-preview:large" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="2024-12归档 - 第9页 - TrojanNode免费节点官网">
+    <meta name="apple-mobile-web-app-title" content="自定义指令拖拽el-dialog">
     <meta name="format-detection" content="telephone=no">
 
     <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
@@ -60,7 +61,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
@@ -83,10 +84,11 @@
         <section class="breadcrumbs">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>2024-12 归档</h2>
+                    <h2>自定义指令拖拽el-dialog</h2>
                     <ol>
                         <li><a href="/">首页</a></li>
-                        <li>2024-12 归档</li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
                     </ol>
                 </div>
             </div>
@@ -96,42 +98,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="xcblog-blog-list">
-                                                        <div class="row content item xcblog-blog-item" data-date="2024-12-01">
-                                <div class="col-lg-3">
-                                    <div class="content">
-                                        <a href="/news/article-19717.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240807/ff0ebe3906840a9e154cb1487cffd99b.webp" class="img-fluid" alt="springBoot项目启动时报错org/springframework/boot/autoconfigure/web/ServerPropertiesAutoConfiguration.class">
-                                        </a>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>vue项目中使用el-dialog弹框时会提一些大大小小的要求，比如需要再窗口中拖拽弹窗。现在使用自定义指令的形式来实现拖拽功能。</p> <h2>一、自定义指令拖拽代码</h2> <pre><code class="language-javascript">export default {   bind(el, binding, vnode) {     const dialogHeaderEl = el.querySelector('.el-dialog__header')     const dragDom = el.querySelector('.el-dialog')     dialogHeaderEl.style.cssText += ';cursor:move;'     dialogHeaderEl.style.cssText += ';user-select:none;'     dragDom.style.cssText += ';top:0px;'     const getStyle = (function() {       if (window.document.currentStyle) {         return (dom, attr) =&gt; dom.currentStyle[attr]       } else {         return (dom, attr) =&gt; getComputedStyle(dom, false)[attr]       }     })()      dialogHeaderEl.onmousedown = e =&gt; {       // 鼠标按下，计算当前元素距离可视区的距离       const disX = e.clientX - dialogHeaderEl.offsetLeft       const disY = e.clientY - dialogHeaderEl.offsetTop        const dragDomWidth = dragDom.offsetWidth       const dragDomheight = dragDom.offsetHeight        const screenWidth = document.body.clientWidth       const screenHeight = document.body.clientHeight        const minDragDomLeft = dragDom.offsetLeft       const maxDragDomLeft = screenWidth - dragDom.offsetLeft - dragDomWidth        const minDragDomTop = dragDom.offsetTop       const maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomheight        // 获取到的值带px 正则匹配替换       let styL = getStyle(dragDom, 'left')       let styT = getStyle(dragDom, 'top')        if (styL.includes('%')) {         styL = Number(document.body.clientWidth) * (Number(styL.replace(/%/g, '')) / 100)         styT = Number(document.body.clientHeight) * (Number(styT.replace(/%/g, '')) / 100)       } else {         styL = Number(styL.replace(/px/g, ''))         styT = Number(styT.replace(/px/g, ''))       }        document.onmousemove = function(e) {         // 通过事件委托，计算移动的距离         let left = e.clientX - disX         let top = e.clientY - disY          // 边界处理         if (-(left) &gt; minDragDomLeft) {           left = -minDragDomLeft         } else if (left &gt; maxDragDomLeft) {           left = maxDragDomLeft         }          if (-(top) &gt; minDragDomTop) {           top = -minDragDomTop         } else if (top &gt; maxDragDomTop) {           top = maxDragDomTop         }          // 移动当前元素         dragDom.style.cssText += `;left:${left + styL}px;top:${top + styT}px;`          // emit onDrag event         vnode.child.$emit('dragDialog')       }        document.onmouseup = function() {         document.onmousemove = null         document.onmouseup = null       }     }   } } </code></pre> <h2>二、在main.js中引用创建写好的指令</h2> <p>在自己的vue项目中的main.js文件中将已经写好的指令逻辑引入，然后使用Vue.directive来创建指令，其中指令名称可以自己定义修改。</p> <pre><code class="language-javascript">import dragDialog from '@/directive/dragDialog/drag' Vue.directive('dragDialog', dragDialog)</code></pre> <p>最后在你的el-dialog组件中将已经创建好的指令写入，如：</p> <pre><code class="language-javascript">&lt;el-dialog title="标题" width="80%" v-drag-dialog :close-on-click-modal="false" :visible.sync="false"&gt;  &lt;/el-dialog&gt;</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44493.htm">被猫咬了怎样（被猫咬了怎样判断用不用打狂犬疫苗）</a></p>
+                                        <p>下一个：<a href="/news/article-44996.htm">开一个宠物医院用word文档怎么弄（如何开办宠物医院论文）</a></p>
                                     </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <a href="/news/article-19717.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">springBoot项目启动时报错org/springframework/boot/autoconfigure/web/ServerPropertiesAutoConfiguration.class</h3>
-                                    </a>
-                                    <p>
-                                        这个问题是jar版本问题，ServerPropertiesAutoConfiguration，在springboot 2.x.x 以后移除了，当springboot&gt;=2.x.x ，其他jar包                                    </p>
-                                </div>
-                            </div>
-                                                        <div class="row content item xcblog-blog-item" data-date="2024-12-01">
-                                <div class="col-lg-3">
-                                    <div class="content">
-                                        <a href="/free-nodes/2024-12-1-today-trojan-node.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240807/c385f0b6d56297d1bc98e27d5b9eaeca.webp" class="img-fluid" alt="12月1日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接">
-                                        </a>
                                     </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <a href="/free-nodes/2024-12-1-today-trojan-node.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">12月1日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接</h3>
-                                    </a>
-                                    <p>
-                                        这一次的节点更新覆盖了新加坡、欧洲、美国、韩国、加拿大、日本、香港等地区,最高速度可达18.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。                                    </p>
-                                </div>
-                            </div>
-                            
-                            <ul class="pagination"><li><a href="/date/2024-12/page-9.htm">&laquo;</a></li> <li><a href="/date/2024-12/">1</a></li><li><a href="/date/2024-12/page-2.htm">2</a></li><li><a href="/date/2024-12/page-3.htm">3</a></li><li><a href="/date/2024-12/page-4.htm">4</a></li><li><a href="/date/2024-12/page-5.htm">5</a></li><li><a href="/date/2024-12/page-6.htm">6</a></li><li><a href="/date/2024-12/page-7.htm">7</a></li><li><a href="/date/2024-12/page-8.htm">8</a></li><li><a href="/date/2024-12/page-9.htm">9</a></li><li class="active"><span>10</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                        </div>
-                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -139,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-27561.htm" title="免费领养狗狗北京（北京去哪领养狗）">免费领养狗狗北京（北京去哪领养狗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe-links.htm" title="11月14日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">11月14日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-35049.htm" title="中国农大动物医院的咨询电话 中国农大动物医院的咨询电话是多少">中国农大动物医院的咨询电话 中国农大动物医院的咨询电话是多少</a></li>
-                        <li class="py-2"><a href="/news/article-30375.htm" title="宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）">宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）</a></li>
-                        <li class="py-2"><a href="/news/article-24775.htm" title="PHP对象接口">PHP对象接口</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-high-speed-nodes.htm" title="1月10日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">1月10日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-today-trojan-node.htm" title="1月15日 | Trojan节点订阅每天更新18.1M/S免费节点订阅链接">1月15日 | Trojan节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-high-speed-nodes.htm" title="1月22日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月22日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43009.htm" title="SM2密码算法数据结构">SM2密码算法数据结构</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-today-trojan-node.htm" title="11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-10-trojan-node-share.htm" title="11月10日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接">11月10日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-44995.htm" title="自定义指令拖拽el-dialog">自定义指令拖拽el-dialog</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-high-speed-nodes.htm" title="12月7日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">12月7日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-today-trojan-node.htm" title="1月3日 | Trojan节点订阅每天更新18.3M/S免费节点订阅链接">1月3日 | Trojan节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-41511.htm" title="动物疫苗接种方法及注意事项有哪些呢图片 动物疫苗接种方法及注意事项有哪些呢图片大全">动物疫苗接种方法及注意事项有哪些呢图片 动物疫苗接种方法及注意事项有哪些呢图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-26145.htm" title="springboot：异步注解@Async的前世今生_在线工具">springboot：异步注解@Async的前世今生_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-44015.htm" title="RMI反序列化学习">RMI反序列化学习</a></li>
+                        <li class="py-2"><a href="/news/article-22922.htm" title="从没出过门的猫走丢了能自己回家吗（从没出过门的猫走丢了能自己回家吗视频）">从没出过门的猫走丢了能自己回家吗（从没出过门的猫走丢了能自己回家吗视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-trojan-windows.htm" title="10月20日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">10月20日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
