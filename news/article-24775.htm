@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://trojannode.github.io/news/article-24775.htm" />
@@ -8,15 +8,43 @@
     <title>PHP对象接口</title>
         <meta name="description" content="介绍 接口是面向对象编程的重要功能，通过它可以指定要由类实现的方法，而不必定义应如何实现。 PHP通过interface关键字支持interface 。接口类似于类，但是方法没有定义主体。接口中的方法" />
         <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-24775.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="PHP对象接口" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/711d0629d5101a5db517736e1157b7f8.webp" />
+        <meta property="og:release_date" content="2024-12-12T10:06:39" />
+    <meta property="og:updated_time" content="2024-12-12T10:06:39" />
+        <meta property="og:description" content="介绍 接口是面向对象编程的重要功能，通过它可以指定要由类实现的方法，而不必定义应如何实现。 PHP通过interface关键字支持interface 。接口类似于类，但是方法没有定义主体。接口中的方法" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP对象接口">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
     
@@ -84,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-28955.htm" title="义乌领养宠物猫吧最新消息（义乌宠物收容中心在哪）">义乌领养宠物猫吧最新消息（义乌宠物收容中心在哪）</a></li>
-                        <li class="py-2"><a href="/news/article-23397.htm" title="Spring 源码BeanFactory使用的准备及自定义属性值解析器">Spring 源码BeanFactory使用的准备及自定义属性值解析器</a></li>
-                        <li class="py-2"><a href="/news/article-26145.htm" title="springboot：异步注解@Async的前世今生_在线工具">springboot：异步注解@Async的前世今生_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-32759.htm" title="猫看见不干净东西举动 猫咪认主的5大征兆">猫看见不干净东西举动 猫咪认主的5大征兆</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-trojan-windows.htm" title="10月10日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">10月10日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-trojan-node-share.htm" title="9月30日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接">9月30日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-today-trojan-node.htm" title="1月15日 | Trojan节点订阅每天更新18.1M/S免费节点订阅链接">1月15日 | Trojan节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe.htm" title="12月14日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">12月14日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44016.htm" title="颗粒饲料机械设备（饲料颗粒机器材）">颗粒饲料机械设备（饲料颗粒机器材）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-high-speed-nodes.htm" title="1月28日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">1月28日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-latest-trojan-node.htm" title="12月28日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">12月28日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-31-free-trojan-node.htm" title="12月31日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">12月31日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-high-speed-nodes.htm" title="10月13日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">10月13日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27094.htm" title="Java修饰符abstract与static及final的精华总结_java">Java修饰符abstract与static及final的精华总结_java</a></li>
-                        <li class="py-2"><a href="/news/article-28956.htm" title="开宠物店利润大吗 现在开宠物店前景好吗">开宠物店利润大吗 现在开宠物店前景好吗</a></li>
+                        <li class="py-2"><a href="/news/article-28025.htm" title="动物接种疫苗产生的免疫力为（动物打疫苗获得的免疫称为）">动物接种疫苗产生的免疫力为（动物打疫苗获得的免疫称为）</a></li>
+                        <li class="py-2"><a href="/news/article-23397.htm" title="Spring 源码BeanFactory使用的准备及自定义属性值解析器">Spring 源码BeanFactory使用的准备及自定义属性值解析器</a></li>
+                        <li class="py-2"><a href="/news/article-29894.htm" title="女生养猫会不会得妇科病（女生养猫会得妇科病吗）">女生养猫会不会得妇科病（女生养猫会得妇科病吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-subscribe-node.htm" title="1月13日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">1月13日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -105,22 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://trojannode.github.io/news/article-35557.htm" />
@@ -8,15 +8,43 @@
     <title>mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具</title>
         <meta name="description" content="在后端开发中经常会碰到涉及数据库的场景，不知道屏幕前的你有这样的疑惑没有，每每在遇到时间、日期字段总是让人头疼，分不清到底是选date还是datetime，亦或是timestamp，真是抓耳挠腮啊，怎" />
         <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-35557.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/c385f0b6d56297d1bc98e27d5b9eaeca.webp" />
+        <meta property="og:release_date" content="2025-01-04T10:24:51" />
+    <meta property="og:updated_time" content="2025-01-04T10:24:51" />
+        <meta property="og:description" content="在后端开发中经常会碰到涉及数据库的场景，不知道屏幕前的你有这样的疑惑没有，每每在遇到时间、日期字段总是让人头疼，分不清到底是选date还是datetime，亦或是timestamp，真是抓耳挠腮啊，怎" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
     
@@ -84,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-trojan-node-share.htm" title="11月25日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">11月25日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-trojan-node-github.htm" title="10月25日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接">10月25日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-high-speed-nodes.htm" title="12月12日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">12月12日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-23-trojan-node-github.htm" title="10月23日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接">10月23日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接">10月29日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-trojan-node-share.htm" title="11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-18844.htm" title="1970年4月20日农历是多少（1970年阴历四月二十阳历是多少）">1970年4月20日农历是多少（1970年阴历四月二十阳历是多少）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="10月17日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接">10月17日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23849.htm" title="中国农业大学动物医院营业时间（中国农业大学动物医院值班表）">中国农业大学动物医院营业时间（中国农业大学动物医院值班表）</a></li>
-                        <li class="py-2"><a href="/news/article-34669.htm" title="动物医院的仪器设备是什么 动物医院的仪器设备是什么东西">动物医院的仪器设备是什么 动物医院的仪器设备是什么东西</a></li>
+                        <li class="py-2"><a href="/news/article-42012.htm" title="厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）">厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）</a></li>
+                        <li class="py-2"><a href="/news/article-22465.htm" title="宠物粮市场销售渠道有哪些类型（宠物粮卖点）">宠物粮市场销售渠道有哪些类型（宠物粮卖点）</a></li>
+                        <li class="py-2"><a href="/news/article-35557.htm" title="mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具">mysql中的date、datetime、timestamp你还不知道怎么使用吗_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-high-speed-nodes.htm" title="1月22日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月22日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44493.htm" title="被猫咬了怎样（被猫咬了怎样判断用不用打狂犬疫苗）">被猫咬了怎样（被猫咬了怎样判断用不用打狂犬疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-27093.htm" title="win11系统怎么查看硬盘型号">win11系统怎么查看硬盘型号</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-trojan-node.htm" title="1月7日 | Trojan节点订阅每天更新20M/S免费节点订阅链接">1月7日 | Trojan节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19718.htm" title="苏州赠送狗狗（苏州赠送狗狗多少钱）">苏州赠送狗狗（苏州赠送狗狗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-30375.htm" title="宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）">宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）</a></li>
+                        <li class="py-2"><a href="/news/article-40523.htm" title="宠物领养合同违约金3000有没支付的嘛（宠物领养合同违约金3000有没支付的嘛怎么办）">宠物领养合同违约金3000有没支付的嘛（宠物领养合同违约金3000有没支付的嘛怎么办）</a></li>
                     </ul>
     </div>
 </div>
@@ -105,16 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

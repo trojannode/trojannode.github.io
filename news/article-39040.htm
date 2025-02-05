@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://trojannode.github.io/news/article-39040.htm" />
@@ -8,15 +8,43 @@
     <title>netty系列之:netty中的自动解码器ReplayingDecoder_在线工具</title>
         <meta name="description" content="目录  简介 ByteToMessageDecoder可能遇到的问题 ReplayingDecoder的实现原理 总结    netty提供了一个从ByteBuf到用户自定义的message的解码器叫" />
         <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-39040.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="netty系列之:netty中的自动解码器ReplayingDecoder_在线工具" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/e1cd3f0128d3ca4e5651b35e0ffc27ca.webp" />
+        <meta property="og:release_date" content="2025-01-11T10:04:02" />
+    <meta property="og:updated_time" content="2025-01-11T10:04:02" />
+        <meta property="og:description" content="目录  简介 ByteToMessageDecoder可能遇到的问题 ReplayingDecoder的实现原理 总结    netty提供了一个从ByteBuf到用户自定义的message的解码器叫" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="netty系列之:netty中的自动解码器ReplayingDecoder_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
     
@@ -84,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-trojan-node-share.htm" title="12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22925.htm" title="宠物服装品牌有哪些（质量好的宠物服装）">宠物服装品牌有哪些（质量好的宠物服装）</a></li>
+                        <li class="py-2"><a href="/news/article-47452.htm" title="动物防疫疫苗与接种疫苗区别是什么意思（动物疫苗是疫苗吗）">动物防疫疫苗与接种疫苗区别是什么意思（动物疫苗是疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-26145.htm" title="springboot：异步注解@Async的前世今生_在线工具">springboot：异步注解@Async的前世今生_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-trojan-windows.htm" title="11月5日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">11月5日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39041.htm" title="小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）">小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）</a></li>
                         <li class="py-2"><a href="/news/article-23849.htm" title="中国农业大学动物医院营业时间（中国农业大学动物医院值班表）">中国农业大学动物医院营业时间（中国农业大学动物医院值班表）</a></li>
-                        <li class="py-2"><a href="/news/article-36575.htm" title="领养狗须知（领养狗需要什么条件和手续）">领养狗须知（领养狗需要什么条件和手续）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-trojan-node.htm" title="10月24日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接">10月24日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19718.htm" title="苏州赠送狗狗（苏州赠送狗狗多少钱）">苏州赠送狗狗（苏州赠送狗狗多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-35556.htm" title="Filebeat和logstash 使用过程中遇到的一些小问题记录">Filebeat和logstash 使用过程中遇到的一些小问题记录</a></li>
-                        <li class="py-2"><a href="/news/article-24775.htm" title="PHP对象接口">PHP对象接口</a></li>
-                        <li class="py-2"><a href="/news/article-24776.htm" title="宠物粮品牌起名字大全集图片及价格（宠物粮品牌名称）">宠物粮品牌起名字大全集图片及价格（宠物粮品牌名称）</a></li>
-                        <li class="py-2"><a href="/news/article-28956.htm" title="开宠物店利润大吗 现在开宠物店前景好吗">开宠物店利润大吗 现在开宠物店前景好吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-trojan-node-share.htm" title="12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-node-share.htm" title="12月26日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">12月26日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-49446.htm" title="动物疫苗佐剂类型（动物疫苗佐剂类型包括）">动物疫苗佐剂类型（动物疫苗佐剂类型包括）</a></li>
+                        <li class="py-2"><a href="/news/article-46983.htm" title="动物防疫站可以给猫做绝育吗（动物防疫站给猫***免费吗）">动物防疫站可以给猫做绝育吗（动物防疫站给猫***免费吗）</a></li>
+                        <li class="py-2"><a href="/news/article-29415.htm" title="开宠物店一个月能赚多少钱（开宠物店一天利润多少才能不亏）">开宠物店一个月能赚多少钱（开宠物店一天利润多少才能不亏）</a></li>
                     </ul>
     </div>
 </div>
@@ -105,16 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

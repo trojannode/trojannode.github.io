@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://trojannode.github.io/news/article-33234.htm" />
@@ -8,15 +8,43 @@
     <title>taro跳转到tabBar报错问题</title>
         <meta name="description" content="{errMsg: “redirectTo:fail can not redirectTo a tabbar page”} 改用解决 Taro.switchTab(option) 跳转到 tabBar " />
         <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-33234.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="taro跳转到tabBar报错问题" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/b5db30fbbaeb6676f7339c16e3172cb8.webp" />
+        <meta property="og:release_date" content="2024-12-30T09:02:06" />
+    <meta property="og:updated_time" content="2024-12-30T09:02:06" />
+        <meta property="og:description" content="{errMsg: “redirectTo:fail can not redirectTo a tabbar page”} 改用解决 Taro.switchTab(option) 跳转到 tabBar " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="taro跳转到tabBar报错问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
     
@@ -84,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-trojan-github.htm" title="9月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">9月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-subscribe-node.htm" title="9月9日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接">9月9日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-node-subscribe.htm" title="9月21日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">9月21日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-26-free-trojan-node.htm" title="8月26日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">8月26日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-8-trojan-node.htm" title="8月8日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接">8月8日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21544.htm" title="减治思二分查找详细总结">减治思二分查找详细总结</a></li>
-                        <li class="py-2"><a href="/news/article-24307.htm" title="动物疫苗的使用方法及注意事项有哪些呢英语 动物疫苗的使用方法及注意事项有哪些呢英语翻译">动物疫苗的使用方法及注意事项有哪些呢英语 动物疫苗的使用方法及注意事项有哪些呢英语翻译</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-high-speed-nodes.htm" title="10月13日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">10月13日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-trojan-github.htm" title="9月24日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">9月24日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-trojan-node-share.htm" title="12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">12月24日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45478.htm" title="宠物领养平台有哪几个平台 宠物领养平台有哪几个平台好">宠物领养平台有哪几个平台 宠物领养平台有哪几个平台好</a></li>
+                        <li class="py-2"><a href="/news/article-33235.htm" title="Jpa框架下拼接原生sql 并执行">Jpa框架下拼接原生sql 并执行</a></li>
+                        <li class="py-2"><a href="/news/article-48954.htm" title="哪些属相不能养狗狗（什么属相不适合养狗狗）">哪些属相不能养狗狗（什么属相不适合养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-43007.htm" title="Pandas 如何处理超大规模数据">Pandas 如何处理超大规模数据</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-today-trojan-node.htm" title="12月9日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接">12月9日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28956.htm" title="开宠物店利润大吗 现在开宠物店前景好吗">开宠物店利润大吗 现在开宠物店前景好吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-latest-trojan-node.htm" title="1月24日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接">1月24日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23847.htm" title="开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂">开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂</a></li>
+                        <li class="py-2"><a href="/news/article-37549.htm" title="兽用疫苗保存的适宜温度（兽药疫苗冷藏室温度）">兽用疫苗保存的适宜温度（兽药疫苗冷藏室温度）</a></li>
+                        <li class="py-2"><a href="/news/article-38538.htm" title="小白开宠物店需要准备什么东西（开宠物店需要做什么）">小白开宠物店需要准备什么东西（开宠物店需要做什么）</a></li>
                     </ul>
     </div>
 </div>
@@ -105,22 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

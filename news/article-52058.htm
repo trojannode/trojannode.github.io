@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-52058.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Azure DevOps 中 Dapr项目自动部署流程实践</title>
+        <meta name="description" content="注：本文中主要讨论 .NET6.0项目在 k8s 中运行的 Dapr 的持续集成流程, 但实际上不是Dapr的项目部署到K8s也是相同流程，只是k8s的yaml配置文件有所不同  基于 Dapr 的项" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-52058.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="Azure DevOps 中 Dapr项目自动部署流程实践" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/51b7f1f08e1a228fb27e11ded22d1e42.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:29:16" />
+    <meta property="og:updated_time" content="2025-02-06T05:29:16" />
+        <meta property="og:description" content="注：本文中主要讨论 .NET6.0项目在 k8s 中运行的 Dapr 的持续集成流程, 但实际上不是Dapr的项目部署到K8s也是相同流程，只是k8s的yaml配置文件有所不同  基于 Dapr 的项" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Azure DevOps 中 Dapr项目自动部署流程实践">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Azure DevOps 中 Dapr项目自动部署流程实践</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>注：本文中主要讨论 .NET6.0项目在 k8s 中运行的 Dapr 的持续集成流程, 但实际上不是Dapr的项目部署到K8s也是相同流程，只是k8s的yaml配置文件有所不同</p> </h1> <p>基于 Dapr 的项目持续集成包含以下流程</p> <ol> <li>编译并打包项目</li> <li>构建 Dockerfile,并推送镜像<code>push image</code>至私有仓库</li> <li>准备 k8s 部署的配置文件</li> <li>通过 kubectl 部署镜像至 k8s 中</li> </ol> <p><strong>这里面有多种方案</strong></p> <table> <thead> <tr> <th style="text-align: left">-</th> <th style="text-align: left">Pipeline的操作</th> <th style="text-align: left">Publish的操作</th> <th style="text-align: left">优点</th> <th style="text-align: left">缺点</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">1. 直接BuildImage并发布</td> <td style="text-align: left">1. 直接使用 Docker Build Image 2. push image 3.复制Yaml至Artifacts</td> <td style="text-align: left">K8s 直接发布 对应版本的yaml + 指定Image</td> <td style="text-align: left">直接,操作简单</td> <td style="text-align: left">1. 产生大量不必要的Image 2.持续集成消耗时间较长3.每次持续集成都有Image产生</td> </tr> <tr> <td style="text-align: left">2. Publish时再进行Build</td> <td style="text-align: left">1. 仅 dotnet publish zip</td> <td style="text-align: left">1. Build Image / Push Image （可选 ）2. K8S 部署+指定Image</td> <td style="text-align: left">单次部署减慢，多次增快</td> <td style="text-align: left">部署过程会比直接接取镜像慢</td> </tr> <tr> <td style="text-align: left">3. 仅发布 Zip，并Build一个使用Volume的专署镜像</td> <td style="text-align: left">仅 dotnet publish zip</td> <td style="text-align: left">使用编译好的镜像修改Volume参数</td> <td style="text-align: left">快</td> <td style="text-align: left">跨环境部署时会导致对于文件系统依赖过重</td> </tr> </tbody> </table> <p>鉴于以上优缺点，最终我选择了<code>第二种</code>折衷方案，这种方案既不影响持续集成的速度，也不会产生过多的镜像，只是在部署时会产生多余的镜像构建时间。</p> </h1> <ul> <li>每个要发布的API的 project 文件夹中增加以下文件 <ul> <li>dapr.yaml</li> <li>Dockerfile</li> </ul> </li> </ul> <p><strong>dapr.yaml</strong></p> <pre><code class="language-yaml">kind: Deployment apiVersion: apps/v1 metadata:   name: demo   namespace: dapr-api   labels:     app: .api     service: demo spec:   replicas: 1   selector:     matchLabels:       service: demo   template:     metadata:       labels:         app: .api         service: demo       annotations:         dapr.io/enabled: "true"         dapr.io/app-id: "demo-api"         dapr.io/app-port: "80"         dapr.io/log-as-json: "true"     spec:       containers:         - name: demo-api           image: 仓库地址/镜像名:220310.13           ports:             - name: http               containerPort: 80               protocol: TCP           imagePullPolicy: IfNotPresent --- kind: Service apiVersion: v1 metadata:   name: demo-api   namespace: dapr-api   labels:     app: .api     service: demo spec:   type: NodePort   selector:     service: demo   ports:   - protocol: TCP     port: 80     targetPort: 80     nodePort: 30004</code></pre> <p><strong>Dockerfile</strong></p> <pre><code class="language-Dockerfile">FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final WORKDIR /app EXPOSE 80 COPY ["./projectfolder", "/app"] ENTRYPOINT ["dotnet", "projectdll.dll"]</code></pre> <p>这两个文件需要每个项目不同，后面在编译和部署流程中会用到。</p> </h1> <pre><code class="language-yaml">trigger:   batch: true  pool:   name: Default name: $(Date:yy)$(Date:MM)$(Date:dd)$(Rev:.r)  variables:     BuildConfiguration: 'Release' steps: - task: UseDotNet@2   displayName: 'Check and Install .NET SDK 6.0'   inputs:     version: '6.0.x'     includePreviewVersions: false  - task: DotNetCoreCLI@2   displayName: 'Publish to zip'   inputs:     command: publish     publishWebProjects: false     projects: './src/projectfolder/project.csproj'     arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory) -v n'     zipAfterPublish: false     workingDirectory: '$(Build.SourcesDirectory)/src' ## 复制上文中的两个文件到 Artifact - task: CopyFiles@2   displayName: 'Copy dapr.yaml to: $(build.artifactstagingdirectory)'   inputs:     SourceFolder: './src/${{ parameters.project }}/'     Contents: |       Dockerfile       dapr.yaml     TargetFolder: '$(build.artifactstagingdirectory)'  - task: PublishBuildArtifacts@1   displayName: 'Publish Artifact'   inputs:     PathtoPublish: '$(build.artifactstagingdirectory)'</code></pre> </h1> <p>发布流程新建两个作业<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/beab1c99ed028477b7f9a643e0a4bcd0.jpg" alt="Azure DevOps 中 Dapr项目自动部署流程实践"></p> <p><strong>作业1 Build Image</strong></p> <pre><code class="language-yaml">variables:   image: '自定义镜像名'  steps: - task: Docker@2   displayName: buildAndPush   inputs:     containerRegistry: harbor     repository: '$(image)'     Dockerfile: '$(System.DefaultWorkingDirectory)/_dapr-demo/drop/Dockerfile'     tags: '$(Build.BuildNumber)'</code></pre> <p><strong>作业2 KubeDeploy</strong></p> <pre><code class="language-yaml">variables:   image: '自定义镜像名,与上文须一致'  steps: - task: KubernetesManifest@0   displayName: deploy   inputs:     kubernetesServiceConnection: online     namespace: '$(ns)' ## k8s的部署目标命名空间     strategy: canary ## 灰度部署策略     percentage: 50     manifests: '$(System.DefaultWorkingDirectory)/_dapr-demo/drop/dapr.yaml'     containers: '$(harborUrl)/$(image):$(Build.BuildNumber)'</code></pre> <p>这样，在首次部署时执行全部管道。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/000a16441986fbd2191e67ed1f76d70a.jpg" alt="Azure DevOps 中 Dapr项目自动部署流程实践"></p> <p>后期回滚版本只，手动执行第二个管理即<code>KubeDeploy</code>即可<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4328a786a952d73e05a5099e3fe665e5.jpg" alt="Azure DevOps 中 Dapr项目自动部署流程实践"></p> </h1> <p>本流程全部依赖 Azure DevOps 自身的配置，并不依赖 Agent 环境配置，如果依赖 Agent 环境的话有更多做法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51523.htm">动物疫苗价格排行前十 动物疫苗价格排行前十的有哪些</a></p>
+                                        <p>下一个：<a href="/news/article-52059.htm">宠物粮食品牌排名前十名有哪些呢（国内十大宠物粮食品牌）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-trojan-node-github.htm" title="11月20日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">11月20日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-trojan-node-share.htm" title="11月12日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">11月12日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22010.htm" title="Kafka启动报错处理：/opt/module/kafka/bin/kafka-run-class.sh: 第 258 行:exec: java: 未找到">Kafka启动报错处理：/opt/module/kafka/bin/kafka-run-class.sh: 第 258 行:exec: java: 未找到</a></li>
+                        <li class="py-2"><a href="/news/article-43009.htm" title="SM2密码算法数据结构">SM2密码算法数据结构</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share.htm" title="12月6日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">12月6日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22011.htm" title="vue elementui点击按钮新增输入框">vue elementui点击按钮新增输入框</a></li>
+                        <li class="py-2"><a href="/news/article-23847.htm" title="开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂">开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂</a></li>
+                        <li class="py-2"><a href="/news/article-20631.htm" title="linux系统改ip地址 永久生效,Linux修改IP永久生效">linux系统改ip地址 永久生效,Linux修改IP永久生效</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-trojan-windows.htm" title="11月5日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">11月5日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-trojan-node.htm" title="11月6日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接">11月6日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
