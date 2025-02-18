@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-58102.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SpringBoot+Redis实现消息的发布与订阅的示例代码_java</title>
+        <meta name="description" content="目录  1.什么是redis的发布与订阅 2.Redis发布订阅 3.命令行实现功能  订阅主题 模式匹配订阅 发布消息 取消订阅 测试  4.SpringBoot实现功能  Springboot整合" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-58102.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="SpringBoot+Redis实现消息的发布与订阅的示例代码_java" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/7666e682f03bf32bc8594a6af8753b82.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:57:24" />
+    <meta property="og:updated_time" content="2025-02-17T09:57:24" />
+        <meta property="og:description" content="目录  1.什么是redis的发布与订阅 2.Redis发布订阅 3.命令行实现功能  订阅主题 模式匹配订阅 发布消息 取消订阅 测试  4.SpringBoot实现功能  Springboot整合" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot+Redis实现消息的发布与订阅的示例代码_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>SpringBoot+Redis实现消息的发布与订阅的示例代码_java</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.什么是redis的发布与订阅</a></li> <li><a href="#_label1" rel="nofollow">2.Redis发布订阅</a></li> <li><a href="#_label2" rel="nofollow">3.命令行实现功能</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_0" rel="nofollow">订阅主题</a></li> <li><a href="#_lab2_2_1" rel="nofollow">模式匹配订阅</a></li> <li><a href="#_lab2_2_2" rel="nofollow">发布消息</a></li> <li><a href="#_lab2_2_3" rel="nofollow">取消订阅</a></li> <li><a href="#_lab2_2_4" rel="nofollow">测试</a></li> </ul> <li><a href="#_label3" rel="nofollow">4.SpringBoot实现功能</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_5" rel="nofollow">Springboot整合Redis</a></li> <li><a href="#_lab2_3_6" rel="nofollow">配置消息监听</a></li> <li><a href="#_lab2_3_7" rel="nofollow">测试</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.什么是redis的发布与订阅</h2> <p>在官网的文档介绍中有一行介绍：Redis是一个快速稳定的发布/订阅消息系统。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.Redis发布订阅</h2> <p>机制</p> <p>Redis提供了发布与订阅的功能，可以用于消息的传输，Redis的发布订阅机制包括三部分，发布者、订阅者和Channel（主题或者队列）。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/d564a53fab47e10c53ce5b912a4d256f.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.命令行实现功能</h2> <p class="maodian"><a name="_lab2_2_0" rel="nofollow"></a></p> <h3>订阅主题</h3> <p>Redis采用SUBSCRIBE channel命令订阅某个主题，返回的参数subscribe表示已经成功订阅主题，第二个参数表示订阅的主题名称，第三个表示当前订阅数</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; SUBSCRIBE ORDER-PAY-SUCCESS  Reading messages... (press Ctrl-C to quit)  1) "subscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_1" rel="nofollow"></a></p> <h3>模式匹配订阅</h3> <p>模式匹配功能是允许客户端订阅匹配某种模式的频道，Redis采用PSUBSCRIBE channel命令订阅匹配某种模式的所有频道，用*表示模式，*可以被任意值代替。</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; PSUBSCRIBE ORDER-PAY-*  Reading messages... (press Ctrl-C to quit)  1) "psubscribe"  2) "ORDER-PAY-*"  3) (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_2" rel="nofollow"></a></p> <h3>发布消息</h3> <p>Redis采用PUBLISH channel message命令在某个主题上发布消息，返回的参数是接收到消息的订阅者个数</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; PUBLISH ORDER-PAY-SUCCESS DD202109071525  (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>取消订阅</h3> <p>Redis采用UNSUBSCRIBE channel或PUNSUBSCRIBE channel命令取消某个主题的订阅，由于Redis的订阅操作是阻塞式的，因此一旦客户端订阅了某个频道或模式，就将会一直处于订阅状态直到退出。在 SUBSCRIBE，PSUBSCRIBE，UNSUBSCRIBE 和 PUNSUBSCRIBE 命令中，其返回值都包含了该客户端当前订阅的频道和模式的数量，当这个数量变为0时，该客户端会自动退出订阅状态。</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; UNSUBSCRIBE ORDER-PAY-SUCCESS  1) "unsubscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 0  127.0.0.1:6379&gt; PUNSUBSCRIBE ORDER-PAY-SUCCESS  1) "punsubscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 0  </pre> </div> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <p class="maodian"><a name="_lab2_3_7" rel="nofollow"></a></p> <h3>测试</h3> <p>首先三个订阅者订阅ORDER-PAY-SUCCESS主题，当发送者在这个主题内发送订单号时，所有的订阅者都会收到这个主题的消息。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/615a3510bb29bac13626b72774c41e64.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.SpringBoot实现功能</h2> <p class="maodian"><a name="_lab2_3_5" rel="nofollow"></a></p> <h3>Springboot整合Redis</h3> <p>引入依赖包</p> <div class="ay1code"> <pre class="brush:xml;">&lt;dependencies&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;              &lt;version&gt;2.2.10.RELEASE&lt;/version&gt;          &lt;/dependency&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;              &lt;version&gt;2.2.10.RELEASE&lt;/version&gt;          &lt;/dependency&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;              &lt;version&gt;2.4.1&lt;/version&gt;          &lt;/dependency&gt;      &lt;/dependencies&gt;  </pre> </div> <p>配置yaml文件</p> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8888    spring:    application:      name: spring-boot-redis    redis:      host: 127.0.0.1      port: 6379</pre> </div> <p class="maodian"><a name="_lab2_3_6" rel="nofollow"></a></p> <h3>配置消息监听</h3> <div class="ay1code"> <pre class="brush:java;">import com.demo.redis.listener.MessageListener;  import org.springframework.context.annotation.Bean;  import org.springframework.context.annotation.Configuration;  import org.springframework.data.redis.connection.RedisConnectionFactory;  import org.springframework.data.redis.core.StringRedisTemplate;  import org.springframework.data.redis.listener.PatternTopic;  import org.springframework.data.redis.listener.RedisMessageListenerContainer;  import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;    /**   * @author Bai   * @date 2021/4/29 上午 11:17   * @description   */  @Configuration  public class RedisMessageConfig {        /**       * 监听订单支付完成主题       */      private static final String ORDER_PAY_SUCCESS = "ORDER-PAY-SUCCESS";        /**       * 注入消息监听适配器       * @param messageListener       * @return {@link MessageListenerAdapter}       * @throws       * @author Bai       * @date 2021/9/7 下午 03:54       */      @Bean      public MessageListenerAdapter getMessageListenerAdapter(MessageListener messageListener){          return new MessageListenerAdapter(messageListener, "onMessage");      }        /**       * 注入消息监听容器       * @param redisConnectionFactory       * @param messageListenerAdapter       * @return {@link RedisMessageListenerContainer}       * @throws       * @author Bai       * @date 2021/9/7 下午 03:54       */      @Bean      public RedisMessageListenerContainer getRedisMessageListenerContainer(RedisConnectionFactory redisConnectionFactory, MessageListenerAdapter messageListenerAdapter){          RedisMessageListenerContainer redisMessageListenerContainer = new RedisMessageListenerContainer();          redisMessageListenerContainer.setConnectionFactory(redisConnectionFactory);            //订阅订单支付成功主题          redisMessageListenerContainer.addMessageListener(messageListenerAdapter, new PatternTopic(ORDER_PAY_SUCCESS));          return redisMessageListenerContainer;      }        /**       * 处理内容       * @param connectionFactory       * @return {@link StringRedisTemplate}       * @throws       * @author Bai       * @date 2021/9/7 下午 04:01       */      @Bean      StringRedisTemplate template(RedisConnectionFactory connectionFactory) {          return new StringRedisTemplate(connectionFactory);      }  }</pre> </div> <p>接收消息</p> <div class="ay1code"> <pre class="brush:java;">import org.springframework.stereotype.Component;    /**   * @author Bai   * @date 2021/9/7 下午 03:51   * @description   */  @Component  public class MessageListener {        public void onMessage(String message){          System.out.println("接收消息：" + message);      }  }</pre> </div> <h3>测试</h3> <p>发送订单支付成功的消息</p> <div class="ay1code"> <pre class="brush:java;">import org.junit.Test;  import org.junit.runner.RunWith;  import org.springframework.boot.test.context.SpringBootTest;  import org.springframework.data.redis.core.StringRedisTemplate;  import org.springframework.test.context.junit4.SpringRunner;    import javax.annotation.Resource;    /**   * @author Bai   * @date 2021/9/7 下午 04:32   * @description   */  @RunWith(value = SpringRunner.class)  @SpringBootTest  public class RedisPubTest {        /**       * 订单支付完成主题       */      private static final String ORDER_PAY_SUCCESS = "ORDER-PAY-SUCCESS";        @Resource      private StringRedisTemplate stringRedisTemplate;        /**       * 模拟发送5调订单支付完成的消息       * @throws       * @author Bai       * @date 2021/9/7 下午 04:57       */      @Test      public void sendMessage(){          for (int i = 0; i &lt; 5; i++) {              stringRedisTemplate.convertAndSend(ORDER_PAY_SUCCESS,"DD" + System.currentTimeMillis());          }      }  }</pre> </div> <p>接收到订单支付成功的消息</p> <blockquote> <p>  .   ____          _            __ _ _<br /> /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \<br />( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \<br /> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )<br />  '  |____| .__|_| |_|_| |_\__, | / / / /<br /> =========|_|==============|___/=/_/_/_/<br /> :: Spring Boot ::       (v2.2.10.RELEASE)</p> <p>2021-09-07 16:56:54.729  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : Starting RedisSubPubApplication on DESKTOP-595LI4G with PID 3712 (D:\Bai\Sources\spring-boot-demo\redis-sub-pub\target\classes started by 1 in D:\Bai\Sources\spring-boot-demo)<br />2021-09-07 16:56:54.735  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : No active profile set, falling back to default profiles: default<br />2021-09-07 16:56:55.205  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!<br />2021-09-07 16:56:55.207  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.<br />2021-09-07 16:56:55.229  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.<br />2021-09-07 16:56:55.557  INFO 3712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)<br />2021-09-07 16:56:55.565  INFO 3712 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]<br />2021-09-07 16:56:55.565  INFO 3712 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]<br />2021-09-07 16:56:55.669  INFO 3712 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext<br />2021-09-07 16:56:55.669  INFO 3712 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 895 ms<br />2021-09-07 16:56:56.032  INFO 3712 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'<br />2021-09-07 16:56:56.950  INFO 3712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''<br />2021-09-07 16:56:56.952  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : Started RedisSubPubApplication in 2.557 seconds (JVM running for 3.436)<br />接收消息：DD1631005025949<br />接收消息：DD1631005025964<br />接收消息：DD1631005025965<br />接收消息：DD1631005025967<br />接收消息：DD1631005025968</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58101.htm">PHP对象继承</a></p>
+                                        <p>下一个：<a href="/news/article-58731.htm">kafka生产者发送消息可靠性</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32296.htm" title="宠物粮食批发进货渠道有哪些地方呢视频（宠物粮食在哪里进货）">宠物粮食批发进货渠道有哪些地方呢视频（宠物粮食在哪里进货）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="12月27日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">12月27日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe-links.htm" title="11月23日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接">11月23日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-trojan-github.htm" title="2月13日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">2月13日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21092.htm" title="宠物零食加工厂要投资多少亿 宠物零食加工厂要投资多少亿元">宠物零食加工厂要投资多少亿 宠物零食加工厂要投资多少亿元</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-node-share.htm" title="2月14日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">2月14日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-trojan-node-share.htm" title="2月15日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">2月15日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47938.htm" title="济南宠物领养日（济南宠物领养微信群）">济南宠物领养日（济南宠物领养微信群）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-trojan-github.htm" title="2月6日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接">2月6日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-trojan-node.htm" title="11月11日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">11月11日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

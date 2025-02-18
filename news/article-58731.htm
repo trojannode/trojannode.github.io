@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-58731.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>kafka生产者发送消息可靠性</title>
+        <meta name="description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-58731.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="kafka生产者发送消息可靠性" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/9b0baa8268bdfd6a6b95a5eb5f9f96ab.webp" />
+        <meta property="og:release_date" content="2025-02-18T09:45:27" />
+    <meta property="og:updated_time" content="2025-02-18T09:45:27" />
+        <meta property="og:description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kafka生产者发送消息可靠性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>kafka生产者发送消息可靠性</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别</p> <p><strong>kafka提供了3种ACK的应答机制</strong></p> <ul> <li>acks=0，生产者发送过来数据就不管了，可靠性较差，效率高；</li> <li>acks=1，生产者发送过来数据Leader应答，可靠性中等，效率中等；</li> <li>acks=-1，生产者发送过来数据Leader和ISR队列里面所有Follwer应答，可靠性高，效率低；</li> </ul> <p>在生产环境中，acks=0很少使用；acks=1，一般用于传输普通日志，允许丢个别数据；acks=-1,一般用于传输和钱相关的数据,对可靠性要求比较高的场景。</p> <p>下面用代码演示下消息的生产段的ACK配置代码</p> <pre><code class="language-java">import org.apache.kafka.clients.producer.KafkaProducer; import org.apache.kafka.clients.producer.ProducerConfig; import org.apache.kafka.clients.producer.ProducerRecord;  import java.util.Properties;  public class ProducerAck {      public static void main(String[] args) throws Exception {          // 1. 创建 kafka 生产者的配置对象         Properties properties = new Properties();         // 2. 给 kafka 配置对象添加配置信息：bootstrap.servers         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "IP:9092");          properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");          // 设置 acks ACKS_CONFIG 可选择的值有： 0 1 all ，分别对应ACK的3种级别         properties.put(ProducerConfig.ACKS_CONFIG, "all");         // 重试次数 retries，默认是 int 最大值，2147483647         properties.put(ProducerConfig.RETRIES_CONFIG, 3);          // 3. 创建 kafka 生产者对象         KafkaProducer&lt;String, String&gt; kafkaProducer = new KafkaProducer&lt;String, String&gt;(properties);         System.out.println("开始发送数据");         // 4. 调用 send 方法,发送消息         for (int i = 0; i &lt; 5; i++) {             kafkaProducer.send(new ProducerRecord&lt;&gt;("zcy222","congge " + i));         }         // 5. 关闭资源         kafkaProducer.close();     }   }</code></pre> <p>核心代码部分和之前正常发送消息没有太大区别，只需要在属性配置里面添加下面这句代码即可</p> <blockquote> <pre>properties.put(ProducerConfig.ACKS_CONFIG, "all");</pre> </blockquote> <p>同时，建议配合消息发送重试的配置一起使用，这个也是实际场景中常用的一种处理方式</p> <p>运行上面的程序，消息可以正常发送到 ”zcy222“这个topic中</p> <p><img fetchpriority="high" decoding="async" alt="" height="234" src="http://img.555519.xyz/uploads3/20220902/648ecb15083fca203722597a0e4b7b49.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58102.htm">SpringBoot+Redis实现消息的发布与订阅的示例代码_java</a></p>
+                                        <p>下一个：<a href="/news/article-58732.htm">动物医院收费标准最新消息新闻（动物医院诊疗范围）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26628.htm" title="免费领养宠物店在哪里（免费领养宠物有套路吗?）">免费领养宠物店在哪里（免费领养宠物有套路吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-27560.htm" title="python自动化系列之使用openpyxl读写Excel">python自动化系列之使用openpyxl读写Excel</a></li>
+                        <li class="py-2"><a href="/news/article-35556.htm" title="Filebeat和logstash 使用过程中遇到的一些小问题记录">Filebeat和logstash 使用过程中遇到的一些小问题记录</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-node-share-links.htm" title="2月4日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接">2月4日 | Trojan节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19259.htm" title="动物防疫站给猫打针免费吗现在（动物防疫站给猫打针免费吗现在还能打吗）">动物防疫站给猫打针免费吗现在（动物防疫站给猫打针免费吗现在还能打吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-today-trojan-node.htm" title="11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">11月7日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-trojan-github.htm" title="1月5日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">1月5日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-53120.htm" title="云环境下集合隐私计算-解读">云环境下集合隐私计算-解读</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-trojan-node-share.htm" title="11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">11月26日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39521.htm" title="猫咬了多久过安全期被猫咬了的图片（猫咬了多久过安全期是真的吗）">猫咬了多久过安全期被猫咬了的图片（猫咬了多久过安全期是真的吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

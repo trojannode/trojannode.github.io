@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-58101.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>PHP对象继承</title>
+        <meta name="description" content="介绍 继承是面向对象编程方法的重要原理。使用此原理，可以定义两个类之间的关系。PHP在其对象模型中支持继承。 PHP使用extends关键字在两个类之间建立关系。 语法 class&nbsp;B&nb" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-58101.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="PHP对象继承" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/570f092b15b0abf553e91558d589357e.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:57:24" />
+    <meta property="og:updated_time" content="2025-02-17T09:57:24" />
+        <meta property="og:description" content="介绍 继承是面向对象编程方法的重要原理。使用此原理，可以定义两个类之间的关系。PHP在其对象模型中支持继承。 PHP使用extends关键字在两个类之间建立关系。 语法 class&nbsp;B&nb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP对象继承">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>PHP对象继承</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2>介绍</h2> <p>继承是面向对象编程方法的重要原理。使用此原理，可以定义两个类之间的关系。PHP在其对象模型中支持继承。</p> <p>PHP使用<strong>extends</strong>关键字在两个类之间建立关系。</p> <h2>语法</h2> <pre>class&nbsp;B&nbsp;extends&nbsp;A</pre> <p>其中A是基类（也称为父类），B是子类或子类。子类继承父类的公共方法和受保护的方法。子类可以重新定义或覆盖任何继承的方法。如果不是这样，当与子类的对象一起使用时，继承的方法将保留其父类中定义的功能。</p> <p>父类的定义必须在子类的定义之前。在这种情况下，脚本中的类B的定义应出现在类A的定义之前。</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;A{ &nbsp;&nbsp;&nbsp;//A类的属性，常量和方法 } class&nbsp;B&nbsp;extends&nbsp;A{ &nbsp;&nbsp;&nbsp;//继承公共和受保护的方法 } ?&gt;</pre> <p>如果启用了自动加载，则通过加载类脚本来获取父类的定义。</p> <h2>继承实例</h2> <p>以下代码显示子类继承父类的公共成员和受保护成员</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;protectedmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;privatemethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;private&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} } class&nbsp;childclass&nbsp;extends&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;childmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;protectedmethod(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//$this-&gt;privatemethod();&nbsp;//this&nbsp;will&nbsp;produce&nbsp;error &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;childclass(); $obj-&gt;publicmethod(); $obj-&gt;childmethod(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Call&nbsp;to&nbsp;private&nbsp;method&nbsp;parentclass::privatemethod()&nbsp;from&nbsp;context&nbsp;'childclass'</pre> <h2>方法覆盖示例</h2> <p>如果在子类中重新定义了从父类继承的方法，则新定义将覆盖以前的功能。在下面的示例中，在子类中再次定义了publicmethod</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;parentclass{ public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } protected&nbsp;function&nbsp;protectedmethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } private&nbsp;function&nbsp;privatemethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;private&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } } class&nbsp;childclass&nbsp;extends&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class&nbsp;is&nbsp;overridden&nbsp;in&nbsp;child&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;childclass(); $obj-&gt;publicmethod(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class&nbsp;is&nbsp;overridden&nbsp;in&nbsp;child&nbsp;class</pre> <h2>继承继承</h2> <p>PHP不支持多重继承。因此，一个类不能扩展两个或多个类。但是，它支持分层继承，如下所示：</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;A{ &nbsp;&nbsp;&nbsp;function&nbsp;test(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"method&nbsp;in&nbsp;A&nbsp;class"; &nbsp;&nbsp;&nbsp;} } class&nbsp;B&nbsp;extends&nbsp;A{ &nbsp;&nbsp;&nbsp;// } class&nbsp;C&nbsp;extends&nbsp;B{ &nbsp;&nbsp;&nbsp;// } $obj=new&nbsp;C(); $obj-&gt;test(); ?&gt;</pre> <p>输出结果</p> <p>这将显示以下结果</p> <pre>method&nbsp;in&nbsp;A&nbsp;class</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57542.htm">宠物粮食行业发展前景分析报告总结范文大全（宠物粮食行业发展前景分析报告总结范文大全最新）</a></p>
+                                        <p>下一个：<a href="/news/article-58102.htm">SpringBoot+Redis实现消息的发布与订阅的示例代码_java</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53643.htm" title="动物疫苗经营许可证如何办理流程图（动物疫苗经营许可证如何办理流程图解）">动物疫苗经营许可证如何办理流程图（动物疫苗经营许可证如何办理流程图解）</a></li>
+                        <li class="py-2"><a href="/news/article-30856.htm" title="宠物用品批发网站大全最便宜卖（宠物用品十大批发市场）">宠物用品批发网站大全最便宜卖（宠物用品十大批发市场）</a></li>
+                        <li class="py-2"><a href="/news/article-36082.htm" title="小型宠物粮食加工设备价格（宠物粮食加工厂设备）">小型宠物粮食加工设备价格（宠物粮食加工厂设备）</a></li>
+                        <li class="py-2"><a href="/news/article-19718.htm" title="苏州赠送狗狗（苏州赠送狗狗多少钱）">苏州赠送狗狗（苏州赠送狗狗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-22925.htm" title="宠物服装品牌有哪些（质量好的宠物服装）">宠物服装品牌有哪些（质量好的宠物服装）</a></li>
+                        <li class="py-2"><a href="/news/article-44995.htm" title="自定义指令拖拽el-dialog">自定义指令拖拽el-dialog</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-trojan-node-share.htm" title="11月25日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">11月25日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-today-trojan-node.htm" title="11月27日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">11月27日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36083.htm" title="动物打的疫苗都有哪些（动物打的疫苗都有哪些种类）">动物打的疫苗都有哪些（动物打的疫苗都有哪些种类）</a></li>
+                        <li class="py-2"><a href="/news/article-49446.htm" title="动物疫苗佐剂类型（动物疫苗佐剂类型包括）">动物疫苗佐剂类型（动物疫苗佐剂类型包括）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
