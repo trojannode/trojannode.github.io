@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-63985.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>mysql 窗口函数</title>
+        <meta name="description" content="说明：    序号 Name Description     1 CUME_DIST() 累积分布值   2 DENSE_RANK() 当前行在其分区内的秩，没有间隙   3 FIRST_VALUE(" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-63985.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="mysql 窗口函数" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/b5db30fbbaeb6676f7339c16e3172cb8.webp" />
+        <meta property="og:release_date" content="2025-02-27T05:56:34" />
+    <meta property="og:updated_time" content="2025-02-27T05:56:34" />
+        <meta property="og:description" content="说明：    序号 Name Description     1 CUME_DIST() 累积分布值   2 DENSE_RANK() 当前行在其分区内的秩，没有间隙   3 FIRST_VALUE(" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql 窗口函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>mysql 窗口函数</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-kimbie-light"> <h3> <a id="_0" rel="nofollow"></a>说明：</h3> <table> <thead> <tr> <th>序号</th> <th>Name</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>CUME_DIST()</td> <td>累积分布值</td> </tr> <tr> <td>2</td> <td>DENSE_RANK()</td> <td>当前行在其分区内的秩，没有间隙</td> </tr> <tr> <td>3</td> <td>FIRST_VALUE()</td> <td>来自窗框第一行的参数值</td> </tr> <tr> <td>4</td> <td>LAG()</td> <td>来自分区内当前行的参数值</td> </tr> <tr> <td>5</td> <td>LAST_VALUE()</td> <td>窗框最后一行的参数值</td> </tr> <tr> <td>6</td> <td>LEAD()</td> <td>分区内当前行前导行的参数值</td> </tr> <tr> <td>7</td> <td>NTH_VALUE()</td> <td>窗框第N行参数值</td> </tr> <tr> <td>8</td> <td>NTILE()</td> <td>当前行在其分区内的Bucket编号。</td> </tr> <tr> <td>9</td> <td>PERCENT_RANK()</td> <td>百分比秩值</td> </tr> <tr> <td>10</td> <td>RANK()</td> <td>当前行在其分区内的秩，带间隙</td> </tr> <tr> <td>11</td> <td>ROW_NUMBER()</td> <td>其分区中当前行的数量</td> </tr> </tbody> </table> <h3> <a id="_14" rel="nofollow"></a>概述</h3> <h4> <a id="1CUME_DIST_15" rel="nofollow"></a>1、CUME_DIST()</h4> <p><font color="#999AAA">CUME_DIST()是一个窗口函数，它返回一组值中值的累积分布。它表示值小于或等于行的值除以总行数的行数。CUME_DIST()函数的返回值大于零且小于或等于1（0 CUME_DIST()&lt;&lt; = 1）。重复的列值接收相同的CUME_DIST()值。</font></p> <pre><code class="prism language-bash">CUME_DIST<span class="token punctuation">(</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>  PARTITION BY expr, <span class="token punctuation">..</span>.  ORDER BY <span class="token function">expr</span> <span class="token punctuation">[</span>ASC <span class="token operator">|</span> DESC<span class="token punctuation">]</span>, <span class="token punctuation">..</span>. <span class="token punctuation">)</span>  </code></pre> <h4> <a id="2DENSE_RANK_23" rel="nofollow"></a>2、DENSE_RANK()</h4> <p><font color="#999AAA">DENSE_RANK()是一个窗口函数，它为分区或结果集中的每一行分配排名，而排名值没有间隙。行的等级从行前的不同等级值的数量增加1。</font></p> <pre><code class="prism language-bash">DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     PARTITION BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span>     ORDER BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="3FIRST_VALUE_35" rel="nofollow"></a>3、FIRST_VALUE()</h4> <p><font color="#999AAA"> FIRST_VALUE()是一个窗口函数，允许您选择窗口框架，分区或结果集的第一行。</font></p> <pre><code class="prism language-bash">FIRST_VALUE<span class="token punctuation">(</span>expression<span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>         <span class="token punctuation">[</span>partition_clause<span class="token punctuation">]</span>         <span class="token punctuation">[</span>order_clause<span class="token punctuation">]</span>         <span class="token punctuation">[</span>frame_clause<span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="4LAG_45" rel="nofollow"></a>4、LAG()</h4> <p><font color="#999AAA"> LAG()函数是一个窗口函数，允许您回顾多行并从当前行访问行的数据。</font></p> <pre><code class="prism language-bash">LAG<span class="token punctuation">(</span><span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span>,offset<span class="token punctuation">[</span>, default_value<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     PARTITION BY expr,<span class="token punctuation">..</span>.     ORDER BY <span class="token function">expr</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>,<span class="token punctuation">..</span>. <span class="token punctuation">)</span>  </code></pre> <h4> <a id="5LAST_VALUE_54" rel="nofollow"></a>5、LAST_VALUE()</h4> <p><font color="#999AAA"> LAST_VALUE()函数是一个窗口函数，允许您选择有序行集中的最后一行。</font></p> <pre><code class="prism language-bash">LAST_VALUE <span class="token punctuation">(</span>expression<span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     <span class="token punctuation">[</span>partition_clause<span class="token punctuation">]</span>     <span class="token punctuation">[</span>order_clause<span class="token punctuation">]</span>     <span class="token punctuation">[</span>frame_clause<span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="6LEAD_65" rel="nofollow"></a>6、LEAD()</h4> <p><font color="#999AAA"> 函数是一个窗口函数，允许您向前看多行并从当前行访问行的数据。与LAG()函数类似，LEAD()函数对于计算同一结果集中当前行和后续行之间的差异非常有用。</font></p> <pre><code class="prism language-bash">LEAD<span class="token punctuation">(</span><span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span>,offset<span class="token punctuation">[</span>, default_value<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     PARTITION BY <span class="token punctuation">(</span>expr<span class="token punctuation">)</span>     ORDER BY <span class="token punctuation">(</span>expr<span class="token punctuation">)</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="7NTH_VALUE_75" rel="nofollow"></a>7、NTH_VALUE()</h4> <p><font color="#999AAA"> 这NTH_VALUE()是一个窗口函数，允许您从有序行集中的第N行获取值。</font></p> <pre><code class="prism language-bash"> NTH_VALUE<span class="token punctuation">(</span>expression, N<span class="token punctuation">)</span> FROM FIRST OVER <span class="token punctuation">(</span>     partition_clause     order_clause     frame_clause <span class="token punctuation">)</span>  </code></pre> <h4> <a id="8NTILE_88" rel="nofollow"></a>8、NTILE()</h4> <p><font color="#999AAA"> MySQL NTILE()函数将排序分区中的行划分为特定数量的组。从每个组分配一个从一开始的桶号。对于每一行，NTILE()函数返回一个桶号，表示行所属的组。</font></p> <pre><code class="prism language-bash">NTILE<span class="token punctuation">(</span>n<span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     PARTITION BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span>     ORDER BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="9PERCENT_RANK_98" rel="nofollow"></a>9、PERCENT_RANK()</h4> <p><font color="#999AAA"> 这PERCENT_RANK()是一个窗口函数，用于计算分区或结果集中行的百分位数。</font></p> <pre><code class="prism language-bash">PERCENT_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span>     OVER <span class="token punctuation">(</span>         PARTITION BY expr,<span class="token punctuation">..</span>.         ORDER BY <span class="token function">expr</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>,<span class="token punctuation">..</span>.     <span class="token punctuation">)</span> </code></pre> <h4> <a id="10RANK_109" rel="nofollow"></a>10、RANK()</h4> <p><font color="#999AAA"> RANK()函数为结果集的分区中的每一行分配一个排名。行的等级由一加上前面的等级数指定。</font></p> <pre><code class="prism language-bash">RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>     PARTITION BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span>     ORDER BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> <h4> <a id="11ROW_NUMBER_119" rel="nofollow"></a>11、ROW_NUMBER()</h4> <p><font color="#999AAA"> 这ROW_NUMBER()是一个窗口函数或分析函数，它为从1开始应用的每一行分配一个序号。<strong>(适用于排序和分组排序)</strong></font></p> <pre><code class="prism language-bash">ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> OVER <span class="token punctuation">(</span>   	PARTITION BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span>	     ORDER BY <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token punctuation">[</span>ASC<span class="token operator">|</span>DESC<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>,<span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>  </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63359.htm">宠物领养协议法律效力怎么写才有效（宠物领养协议范本）</a></p>
+                                        <p>下一个：<a href="/news/article-63986.htm">免费领养宠物正规网站平台推荐下载（免费领养宠物正规网站平台推荐下载大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-trojan-node.htm" title="12月30日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">12月30日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22925.htm" title="宠物服装品牌有哪些（质量好的宠物服装）">宠物服装品牌有哪些（质量好的宠物服装）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-latest-trojan-node.htm" title="12月28日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">12月28日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-trojan-node.htm" title="11月16日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接">11月16日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33234.htm" title="taro跳转到tabBar报错问题">taro跳转到tabBar报错问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-trojan-node-share.htm" title="11月12日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">11月12日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-55287.htm" title="黄岛的宠物市场（黄岛哪里有卖宠物的）">黄岛的宠物市场（黄岛哪里有卖宠物的）</a></li>
+                        <li class="py-2"><a href="/news/article-60996.htm" title="附近宠物收容中心 附近宠物收容中心电话">附近宠物收容中心 附近宠物收容中心电话</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-trojan-node.htm" title="1月1日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接">1月1日 | Trojan节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28027.htm" title="中国十大宠物粮厂排名第一（国内宠物粮食十大厂家）">中国十大宠物粮厂排名第一（国内宠物粮食十大厂家）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
