@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-67074.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>如何使用–Recurse参数在PowerShell中复制文件夹内容？</title>
+        <meta name="description" content="要将文件夹的内容复制到PowerShell中的目标文件夹，您需要提供该文件夹的源路径和目标路径，但需要确保在源路径后使用通配符（*），因此整个文件夹内容将被复制。 如果仅提供不带（*）的源文件夹，则仅" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-67074.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="如何使用–Recurse参数在PowerShell中复制文件夹内容？" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/996e24e70dd01d03f690174d518abe83.webp" />
+        <meta property="og:release_date" content="2025-03-04T10:14:25" />
+    <meta property="og:updated_time" content="2025-03-04T10:14:25" />
+        <meta property="og:description" content="要将文件夹的内容复制到PowerShell中的目标文件夹，您需要提供该文件夹的源路径和目标路径，但需要确保在源路径后使用通配符（*），因此整个文件夹内容将被复制。 如果仅提供不带（*）的源文件夹，则仅" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何使用–Recurse参数在PowerShell中复制文件夹内容？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>如何使用–Recurse参数在PowerShell中复制文件夹内容？</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>要将文件夹的内容复制到PowerShell中的目标文件夹，您需要提供该文件夹的源路径和目标路径，但需要确保在源路径后使用通配符（*），因此整个文件夹内容将被复制。</p> <p>如果仅提供不带（*）的源文件夹，则仅复制文件夹名称而不包含其内容。我们还需要确保源文件夹和目标文件夹都存在。</p> <h2>示例</h2> <pre>Copy-Item&nbsp;-Path&nbsp;D:\Temp\&nbsp;-Destination&nbsp;D:\TempContent&nbsp;-PassThru</pre> <p>输出结果</p> <p>使用上面的命令时，您将看到输出为none，因为未指定（*）字符。</p> <pre>PS&nbsp;C:\WINDOWS\system32&gt;&nbsp;Copy-Item&nbsp;-Path&nbsp;D:\Temp\&nbsp;-Destination&nbsp;D:\TempContent&nbsp;-PassThru &nbsp;&nbsp;&nbsp;&nbsp;Directory:&nbsp;D:\TempContent Mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastWriteTime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length&nbsp;Name ----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------&nbsp;---- d-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06-03-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temp</pre> <p>输出结果</p> <p>但是，当您指定（*）字符时，文件夹内容将被复制。</p> <h2>示例</h2> <pre>Copy-Item&nbsp;-Path&nbsp;D:\Temp\*&nbsp;-Destination&nbsp;D:\TempContent&nbsp;-PassThru</pre> <p>输出结果</p> <pre>PS&nbsp;C:\WINDOWS\system32&gt;&nbsp;Copy-Item&nbsp;-Path&nbsp;D:\Temp\*&nbsp;-Destination&nbsp;D:\TempContent&nbsp;-PassThru &nbsp;&nbsp;&nbsp;&nbsp;Directory:&nbsp;D:\TempContent Mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastWriteTime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length&nbsp;Name ----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------&nbsp;---- d-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06-03-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPO_backup d-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06-03-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGPO -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22:21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13962&nbsp;Alias1 -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19:20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13818&nbsp;aliases.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;07-05-2018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;301&nbsp;cars.xml -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18:25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48&nbsp;delim.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17:25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;GetContentExample.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15:16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4526&nbsp;healthcheck.htm -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15:16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4526&nbsp;healthcheck1.htm -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1148809&nbsp;PowerShellcommands.csv -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22:04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55190&nbsp;Processes.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18:22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27620&nbsp;ReadC.txt -ar---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18:19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;Readonlyfile.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48362&nbsp;servicereport.htm -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48362&nbsp;servicereport1.htm -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18:44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;stream1.txt -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;393&nbsp;style.css -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23:04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1034&nbsp;tes.htmoutput.htm -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08-12-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7974&nbsp;Test.xlsx -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25-10-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08:13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;104&nbsp;testcsv.csv -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-01-2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16:26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27620&nbsp;testreadC.txt</pre> <p>在上面的示例中，您可能已经注意到，还有子文件夹，例如<strong>LGPO</strong>和GPO_backup，但是当子文件夹复制到目标位置时，它们为空，并且仅父文件夹下的文件被复制。</p> <h2>示例</h2> <p>要同时复制子文件夹的内容，您需要使用<strong>–Recurse</strong>参数。下面给出一个例子。</p> <pre>PS&nbsp;C:\WINDOWS\system32&gt;&nbsp;Get-ChildItem&nbsp;D:\TempContent\LGPO\ &nbsp;&nbsp;&nbsp;&nbsp;Directory:&nbsp;D:\TempContent\LGPO Mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastWriteTime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length&nbsp;Name ----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------&nbsp;---- -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01-06-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;03:22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410088&nbsp;LGPO.exe -a----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01-06-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;02:25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;638115&nbsp;LGPO.pdf</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66439.htm">宠物粮食加工厂设备有哪些品牌的好呢（宠物粮食加工厂需要投资多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-67076.htm">动物疫苗的种类和制备原理是什么意思 动物疫苗的种类和制备原理是什么意思啊</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="12月27日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">12月27日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe.htm" title="12月14日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">12月14日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26145.htm" title="springboot：异步注解@Async的前世今生_在线工具">springboot：异步注解@Async的前世今生_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-28-today-trojan-node.htm" title="2月28日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">2月28日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share-links.htm" title="12月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">12月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50482.htm" title="宠物美容师有前景吗女生（宠物美容师好不好做）">宠物美容师有前景吗女生（宠物美容师好不好做）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-high-speed-nodes.htm" title="12月12日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">12月12日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46465.htm" title="宠物店一个月能卖多少狗粮和狗粮呢（宠物店一个月能卖多少狗粮和狗粮呢）">宠物店一个月能卖多少狗粮和狗粮呢（宠物店一个月能卖多少狗粮和狗粮呢）</a></li>
+                        <li class="py-2"><a href="/news/article-34669.htm" title="动物医院的仪器设备是什么 动物医院的仪器设备是什么东西">动物医院的仪器设备是什么 动物医院的仪器设备是什么东西</a></li>
+                        <li class="py-2"><a href="/news/article-43007.htm" title="Pandas 如何处理超大规模数据">Pandas 如何处理超大规模数据</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
