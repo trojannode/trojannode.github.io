@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-68352.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>一次不规范HTTP请求引发的nginx响应400问题分析与解决</title>
+        <meta name="description" content="背景 最近分析数据偶然发现nginx log中有一批用户所有的HTTP POST log上报请求均返回400，没有任何200成功记录，由于只占整体请求的不到0.5%，所以之前也一直没有触发监控报警，而" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-68352.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="一次不规范HTTP请求引发的nginx响应400问题分析与解决" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/ff8d180896df1c1c9ef9356e4969002f.webp" />
+        <meta property="og:release_date" content="2025-03-06T11:02:13" />
+    <meta property="og:updated_time" content="2025-03-06T11:02:13" />
+        <meta property="og:description" content="背景 最近分析数据偶然发现nginx log中有一批用户所有的HTTP POST log上报请求均返回400，没有任何200成功记录，由于只占整体请求的不到0.5%，所以之前也一直没有触发监控报警，而" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一次不规范HTTP请求引发的nginx响应400问题分析与解决">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>一次不规范HTTP请求引发的nginx响应400问题分析与解决</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="背景">背景</h2> <p>最近分析数据偶然发现nginx log中有一批用户所有的HTTP POST log上报请求均返回400，没有任何200成功记录，由于只占整体请求的不到0.5%，所以之前也一直没有触发监控报警，而且很奇怪的是只对于log上报的POST接口会存在这种特定用户全部400的情况，而对于其他接口无论POST还是GET均没有此类问题。<br /> 进一步分析log发现其实对某些地区的用户请求，这个比例甚至超过了10%，于是花时间跟进了一下，最终发现源于部分机型客户端发出的HTTP请求格式不规范导致，这里记录一下分析过程、原因以及最终解决方案。</p> <h2 id="问题分析">问题分析</h2> <h3 id="常见nginx-400原因">常见nginx 400原因</h3> <p>搜寻网上资料，发现一般可能有以下几个原因会导致nginx响应400：</p> <ol> <li>request_uri 过长超过nginx配置大小</li> <li>cookie或者header过大超过nginx配置大小</li> <li>空HOST头</li> <li>content_length和body长度不一致</li> </ol> <p>这些错误其实都是发生在nginx这一层，即nginx处理时认为客户端请求格式错误，于是直接返回400，不会向upstream server转发请求，因而upstream server对这些错误请求其实完全是无感知的。<br /> 而这次根据nginx log分析，可以看到nginx其实有向upstream server转发请求--upstream_addr已经是upstream server 有效地址，所以400实际应当是upstream server返回的，而不是nginx直接返回，这说明至少nginx这一层认为请求格式是没问题的。</p> <h3 id="实际nginx-400-log分析">实际nginx 400 log分析</h3> <p>截取部分线上部分用户的错误日志，其大体样式如下</p> <pre><code>127.0.0.1:63646	-	24/Apr/2022:00:50:07 +0900	127.0.0.1:1080	0.000	0.000	POST /log/report?appd=abc.demo.android&amp;appname=abcdemo&amp;v=1.0&amp;langes=zh-CN&amp;phonetype=android&amp;device_type=android&amp;osn=Android OS 10 / API-29 (QKQ1.190825.002/V12.0.6.0.QFKCNXM)&amp;channel=Google Play&amp;build=Android OS 10 / API-29 (QKQ1.190825.002/V12.0.6.0.QFKCNXM)&amp;resolution=1080x2340&amp;ts=1650636192534 HTTP/1.1	400	50	-	curl/7.52.1	-	0.000	0.000	127.0.0.1	1563	2021</code></pre> <p>日志分析可以发现大部分400请求都有一个问题：其query参数并未经过urlencode，比如可以很明显看到其参数channel=Google Play 中的空格并未转码成%20，直觉上推断这应该和400的原因有直接关系。</p> <h3 id="试错">试错</h3> <p>为了验证未转码query参数是否是导致400的直接原因，简单通过curl构造几个测试http请求：</p> <pre><code># 无空格 curl -v 'http://127.0.0.1/log/report?appd=abc.demo.android&amp;appname=abcdemo&amp;v=1.0&amp;langes=zh-CN&amp;phonetype=android&amp;channel=Google%20Play' -d @test.json *   Trying 127.0.0.1... * TCP_NODELAY set * Connected to 127.0.0.1 (127.0.0.1) port 80 (#0) &gt; POST /log/report?appd=abc.demo.android&amp;appname=abcdemo&amp;v=1.0&amp;langes=zh-CN&amp;phonetype=android&amp;channel=Google%20Play HTTP/1.1 &gt; Host: 127.0.0.1 &gt; User-Agent: curl/7.52.1 &gt; Accept: */* &gt; Content-Length: 1563 &gt; Content-Type: application/x-www-form-urlencoded &gt; Expect: 100-continue &gt; &lt; HTTP/1.1 100 Continue * We are completely uploaded and fine &lt; HTTP/1.1 200 OK &lt; Server: nginx/1.16.1 &lt; Date: Sat, 23 Apr 2022 15:54:53 GMT &lt; Content-Type: application/json &lt; Content-Length: 22 &lt; Connection: keep-alive &lt; * Curl_http_done: called premature == 0 * Connection #0 to host 127.0.0.1 left intact # 有空格 curl -v 'http://127.0.0.1/log/report?appd=abc.demo.android&amp;appname=abcdemo&amp;v=1.0&amp;langes=zh-CN&amp;phonetype=android&amp;channel=Google Play' -d @test.json *   Trying 127.0.0.1... * TCP_NODELAY set * Connected to 127.0.0.1 (127.0.0.1) port 80 (#0) &gt; POST /log/report?appd=abc.demo.android&amp;appname=abcdemo&amp;v=1.0&amp;langes=zh-CN&amp;phonetype=android&amp;channel=Google Play HTTP/1.1 &gt; Host: 127.0.0.1 &gt; User-Agent: curl/7.52.1 &gt; Accept: */* &gt; Content-Length: 1563 &gt; Content-Type: application/x-www-form-urlencoded &gt; Expect: 100-continue &gt; &lt; HTTP/1.1 100 Continue * We are completely uploaded and fine &lt; HTTP/1.1 400 Bad Request &lt; Server: nginx/1.16.1 &lt; Date: Sat, 23 Apr 2022 15:55:14 GMT &lt; Content-Type: text/plain; charset=utf-8 &lt; Transfer-Encoding: chunked &lt; Connection: keep-alive &lt; * Curl_http_done: called premature == 0 * Connection #0 to host 127.0.0.1 left intact</code></pre> <p>发现凡是带空格的请求upstream server均会直接返回400，这里可以推断query 参数未urlencode是400问题的直接原因了，但是为什么未转码会导致400呢？怎么从HTTP原理上解释这个现象？为了找到答案，需要回顾了一下HTTP协议标准。</p> <h3 id="http请求规范格式">HTTP请求规范格式</h3> <p>HTTP的请求消息格式如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d1719a9c8a0991cf579791ac7fc7a0e5.jpg" alt="一次不规范HTTP请求引发的nginx响应400问题分析与解决"><br /> 如上图所示，作为一种文本协议，对HTTP请求消息中不同部分的区别、拆分完全是基于空格 、回车符\r、换行符\n这些字符标记进行的，对于第一行的三个部分请求方法、URL和协议版本的拆分即是根据空格进行split。<br /> 分析查到的400 HTTP请求，可以发现由于query参数未urlencode，导致其中会出现空格，这时严格来说这个请求已经不符合HTTP规范了，因为此时第一行再根据空格可以split出超过3部分，无法与method、URL、version再一一对应，从语义上来说此时直接返回400是合理处理逻辑。<br /> 实际处理中，面对这种情况，有的组件能兼容处理--把split的首部和尾部分别作为method与version，而中间剩余部分统一作为URL，比如nginx即兼容了这种不规范格式，但是很多组件并不能兼容处理这种情况--毕竟这并不符合HTTP规范，比如charles抓包此种请求会出错、golang 的net/http库、Django的http模块收到这类请求都会报400...</p> <h3 id="golang-nethttp解析http代码分析">golang net/http解析HTTP代码分析</h3> <p>负责日志上报的upstream server是golang实现的logsvc，其使用标准卡库net/http处理HTTP请求，进一步探究一下该标准库是怎么解析HTTP请求的，以确认错误原因。<br /> 根据golang源码，可以发现其HTTP请求解析的路径为 http.ListenAndServe =&gt; http.Serve =&gt; serve =&gt; readRequest.... 其解析HTTP请求头的逻辑即位于readRequest函数中。<br /> readRequest部分代码如下：</p> <pre><code>// file: net/http/request.go ... 1009 func readRequest(b *bufio.Reader, deleteHostHeader bool) (req *Request, err error) { 1010     tp := newTextprotoReader(b) 1011     req = new(Request) 1012 1013     // First line: GET /index.html HTTP/1.0 1014     var s string 1015     if s, err = tp.ReadLine(); err != nil { 1016         return nil, err 1017     } 1018     defer func() { 1019         putTextprotoReader(tp) 1020         if err == io.EOF { 1021             err = io.ErrUnexpectedEOF 1022         } 1023     }() 1024 1025     var ok bool 1026     req.Method, req.RequestURI, req.Proto, ok = parseRequestLine(s) 1027     if !ok { 1028         return nil, &amp;badStringError{"malformed HTTP request", s} 1029     } 1030     if !validMethod(req.Method) { 1031         return nil, &amp;badStringError{"invalid method", req.Method} 1032     } 1033     rawurl := req.RequestURI 1034     if req.ProtoMajor, req.ProtoMinor, ok = ParseHTTPVersion(req.Proto); !ok { 1035         return nil, &amp;badStringError{"malformed HTTP version", req.Proto} 1036     } ...</code></pre> <p>可以看到readRequest中先通过parseRequestLine解析出首行的method, URL与Proto三个字段，然后通过ParseHTTPVersion解析version是否正确，不正确则报错{"malformed HTTP version"， 最终会导致响应400。<br /> parseRequestLine代码如下：</p> <pre><code>...  966 // parseRequestLine parses "GET /foo HTTP/1.1" into its three parts.  967 func parseRequestLine(line string) (method, requestURI, proto string, ok bool) {  968     s1 := strings.Index(line, " ")  969     s2 := strings.Index(line[s1+1:], " ")  970     if s1 &lt; 0 || s2 &lt; 0 {  971         return  972     }  973     s2 += s1 + 1  974     return line[:s1], line[s1+1 : s2], line[s2+1:], true  975 }</code></pre> <p>可以看到parseRequestLine的解析代码是通过查找第0个、第1个空格index，然后直接基于slice语法将其切成了method、requestURI、proto三部分，如果requestURI中包含额外空格，会导致proto取值实际变为第一个空格之后的所有字符，比如"POST abc/?x=o space d HTTP/1.1"会被解析为:method=POST, requestURI=abc/?x=0, proto=" space d HTTP/1.1"，这会导致下一步ParseHTTPVersion解析出错。<br /> ParseHTTPVersion代码如下，可以发现之前parseRequestLine解析得到的version字段如果不合法，则会返回错误：</p> <pre><code>...  769 // ParseHTTPVersion parses an HTTP version string.  770 // "HTTP/1.0" returns (1, 0, true).  771 func ParseHTTPVersion(vers string) (major, minor int, ok bool) {  772     const Big = 1000000 // arbitrary upper bound  773     switch vers {  774     case "HTTP/1.1":  775         return 1, 1, true  776     case "HTTP/1.0":  777         return 1, 0, true  778     }  779     if !strings.HasPrefix(vers, "HTTP/") {  780         return 0, 0, false  781     }  782     dot := strings.Index(vers, ".")  783     if dot &lt; 0 {  784         return 0, 0, false  785     }  786     major, err := strconv.Atoi(vers[5:dot])  787     if err != nil || major &lt; 0 || major &gt; Big {  788         return 0, 0, false  789     }  790     minor, err = strconv.Atoi(vers[dot+1:])  791     if err != nil || minor &lt; 0 || minor &gt; Big {  792         return 0, 0, false  793     }  794     return major, minor, true  795 }</code></pre> <h2 id="解决方案">解决方案</h2> <p>首先要做的是先和客户端对齐问题，客户端确认部分机型上其调用unity的网络库方法未能对其query参数正常urlencode，新版本将在unity网络库之上增加额外代码保证所有参数必须urlencode，使其符合HTTP规范。<br /> 而后进一步考虑可否先临时兼容处理线上已有的异常请求，防止新版本覆盖修复前这部分异常用户log上报数据的持续丢失，针对兼容考虑了以下几个方案</p> <h3 id="尝试三方http-golang库-gin--echo">尝试三方HTTP golang库 gin &amp;&amp; echo</h3> <p>由于日志服务由独立的golang server负责，其代码逻辑很简单：只是对log 的POST请求的body进行解压缩、解析、写入kafka，并无其他额外逻辑，改动成本较低，因此先考虑了替换net/http为其他三方库看是否能解决问题。<br /> 先后尝试了流行的gin和echo库发现都报400，忍不住又探究了其源码，结果发现这两个库内部其实都调用了net/http 的ListenAndServer 和 Serve方法，其前面的解析逻辑就是net/http对应代码负责的，因而自然也会报400。</p> <h3 id="nginx-luaperl脚本更改query参数">nginx lua/perl脚本更改query参数</h3> <p>想到的另一个可能方法是在nginx层使用lua/perl脚本对传入的未urlencode的request_uri参数进行urlencode后再发给upstream server，但是发现线上nginx编译时并未集成lua、perl的模块。要采用此种方法则只能：</p> <ol> <li>要么重新编译整个nginx替换原nginx</li> <li>或者采用动态加载的方式单独编译perl、lua模块后使用nginx动态加载</li> </ol> <p>考虑到本人作为RD而非专业nginx OP人员，和对线上影响的风险不轻易尝试。</p> <h3 id="nginx-将logreport路由至可兼容空格未转码http请求的server">nginx 将log/report路由至可兼容空格未转码HTTP请求的server</h3> <p>开头提到过对于待空格的异常请求，只有log上报POST接口会返回400，其他接口都返回正常，这其实是因为在nginx转发时对正常的业务接口和log接口进行了拆分，log/report接口会单独转发到独立的golang logsvc服务，而正常业务请求均会转发给python的主api服务。<br /> 回顾当初之所以会拆分一个单独的golang server负责app log上报的解析和写kafka，而不再和其他接口逻辑一样都由主api服务负责，主要是两个原因：</p> <ol> <li>Pythono写的api主服务相对效率较低，对于频繁、大量的log上报可能耗费过多资源，速度也较慢</li> <li>避免log上报类请求影响其他正常的业务请求响应速度，将业务逻辑与日志上报两者解耦</li> </ol> <p>当前logsvc无法处理的此种情况，使用uwsgi协议与nginx交互的api主服务却可以正常解析，因而在nginx添加如下临时配置：</p> <pre><code>    location /log/report {         include proxy_params;         if ( $args !~ "^(.*) (.*)$" ) { 	    proxy_pass http://test_log_stream;             break;         }         include uwsgi_params;         uwsgi_pass test_api_stream;     }</code></pre> <p>即通过正则匹配query参数(args)中若不存在空格直接交由logsvc处理，存在空格则交由使用uwsgi协议的api主服务处理，由于此类异常请求仅占整体请求的不到0.5%，之前考虑的拆分架构依然work，只是对于少量的异常请求先通过api主服务进行兼容处理。</p> <p>转载请注明出处，原文地址:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/AcAc-t/p/nginx_400_problem_for_not_encode_http_request.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/AcAc-t/p/nginx_400_problem_for_not_encode_http_request.html</a></p> <h2 id="参考">参考</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ranyonsue/p/5984001.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/ranyonsue/p/5984001.html</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.920430.com/archives/4291504507.html"  target="_blank" rel="nofollow">https://www.920430.com/archives/4291504507.html</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/iamlihongwei/article/details/103611655"  target="_blank" rel="nofollow">https://blog.csdn.net/iamlihongwei/article/details/103611655</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dbaplus.cn/news-21-1129-1.html"  target="_blank" rel="nofollow">https://dbaplus.cn/news-21-1129-1.html</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.51cto.com/leejia/1434564"  target="_blank" rel="nofollow">https://blog.51cto.com/leejia/1434564</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/kaosini/article/details/8433044"  target="_blank" rel="nofollow">https://blog.csdn.net/kaosini/article/details/8433044</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67720.htm">宠物领养机构在哪里查询（宠物领养去哪里领养）</a></p>
+                                        <p>下一个：<a href="/news/article-68353.htm">分享MySQL生产库内存异常增高的排查过程_Mysql_</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47453.htm" title="成都宠物领养中心官网收容中心电话号码（成都宠物收养所在哪里）">成都宠物领养中心官网收容中心电话号码（成都宠物收养所在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-44493.htm" title="被猫咬了怎样（被猫咬了怎样判断用不用打狂犬疫苗）">被猫咬了怎样（被猫咬了怎样判断用不用打狂犬疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-60996.htm" title="附近宠物收容中心 附近宠物收容中心电话">附近宠物收容中心 附近宠物收容中心电话</a></li>
+                        <li class="py-2"><a href="/news/article-62768.htm" title="宠物猫疫苗隔多久打一针（宠物猫疫苗间隔多久打一次）">宠物猫疫苗隔多久打一针（宠物猫疫苗间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-42012.htm" title="厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）">厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="3月4日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">3月4日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-free-subscribe-node.htm" title="3月1日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接">3月1日 | Trojan节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-node-share-links.htm" title="2月20日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">2月20日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-54750.htm" title="动物诊疗许可证样本图片（动物诊疗许可证填写规范）">动物诊疗许可证样本图片（动物诊疗许可证填写规范）</a></li>
+                        <li class="py-2"><a href="/news/article-47938.htm" title="济南宠物领养日（济南宠物领养微信群）">济南宠物领养日（济南宠物领养微信群）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
