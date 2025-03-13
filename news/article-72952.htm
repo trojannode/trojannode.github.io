@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-72952.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Java 超详细讲解ThreadLocal类的使用_java</title>
+        <meta name="description" content="目录  Threadlocal有什么用： ThreadLocal使用实例  API介绍 ThreadLocal的使用  Threadlocal 的源码分析  原理 源码  内部类ThreadLocal" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-72952.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="Java 超详细讲解ThreadLocal类的使用_java" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/1b062cce769ca4136e486e628e4fff18.webp" />
+        <meta property="og:release_date" content="2025-03-13T09:22:07" />
+    <meta property="og:updated_time" content="2025-03-13T09:22:07" />
+        <meta property="og:description" content="目录  Threadlocal有什么用： ThreadLocal使用实例  API介绍 ThreadLocal的使用  Threadlocal 的源码分析  原理 源码  内部类ThreadLocal" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 超详细讲解ThreadLocal类的使用_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Java 超详细讲解ThreadLocal类的使用_java</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">Threadlocal有什么用：</a></li> <li><a href="#_label1" rel="nofollow">ThreadLocal使用实例</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">API介绍</a></li> <li><a href="#_lab2_1_1" rel="nofollow">ThreadLocal的使用</a></li> </ul> <li><a href="#_label2" rel="nofollow">Threadlocal 的源码分析</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_2" rel="nofollow">原理</a></li> <li><a href="#_lab2_2_3" rel="nofollow">源码</a></li> </ul> <li><a href="#_label3" rel="nofollow">内部类ThreadLocalMap</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">ThreadLocalMap存储位置</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label5" rel="nofollow">Key的弱引用问题</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label6" rel="nofollow">java中的四种引用</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label7" rel="nofollow">总结：</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>Threadlocal有什么用：</h2> <p>简单的说就是，一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的（每个线程都只能看到自己线程的值）。如下图：</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/96160fccd817dde5f79876d08ea6caec.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>ThreadLocal使用实例</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>API介绍</h3> <p>在使用Threadlocal之前我们先看以下它的API：</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/0ada0e9534837d2f02d95fc6bf8cfef4.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>ThreadLocal类的API非常的简单，在这里比较重要的就是get()、set()、remove(),set用于赋值操作，get用于获取变量的值，remove就是删除当前变量的值.需要注意的是initialValue方法会在第一次调用时被触发，用于初始化当前变量值，默认情况下initialValue返回的是null。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>ThreadLocal的使用</h3> <p>说完了ThreadLocal类的API了，那我们就来动手实践一下了，来理解前面的那句话：一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的（每个线程都只能看到自己线程的值）</p> <div class="ay1code"> <pre class="brush:java;">  public class ThreadLocalTest {        private static ThreadLocal&lt;Integer&gt; threadLocal = new ThreadLocal&lt;Integer&gt;() {  	// 重写这个方法，可以修改“线程变量”的初始值，默认是null          @Override          protected Integer initialValue() {              return 0;          }      };        public static void main(String[] args) throws InterruptedException {            //一号线程          new Thread(new Runnable() {              @Override              public void run() {                  System.out.println("一号线程set前：" + threadLocal.get());                  threadLocal.set(1);                  System.out.println("一号线程set后：" + threadLocal.get());              }          }).start();            //二号线程          new Thread(new Runnable() {              @Override              public void run() {                  System.out.println("二号线程set前：" + threadLocal.get());                  threadLocal.set(2);                  System.out.println("二号线程set后：" + threadLocal.get());                }          }).start();            //主线程睡1s          Thread.sleep(1000);            //主线程          System.out.println("主线程的threadlocal值：" + threadLocal.get());        }    }    </pre> </div> <p>稍微解释一下上面的代码：</p> <p>每一个ThreadLocal实例就类似于一个变量名，不同的ThreadLocal实例就是不同的变量名，它们内部会存有一个值（暂时这么理解）在后面的描述中所说的“ThreadLocal变量或者是线程变量”代表的就是ThreadLocal类的实例。</p> <p>在类中创建了一个静态的 “ThreadLocal变量”，在主线程中创建两个线程，在这两个线程中分别设置ThreadLocal变量为1和2。然后等待一号和二号线程执行完毕后，在主线程中查看ThreadLocal变量的值。</p> <p>程序结果及分析⌛</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/7976f87e4de037577fd95ec9bca91770.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>程序结果重点看的是主线程输出的是0，如果是一个普通变量，在一号线程和二号线程中将普通变量设置为1和2，那么在一二号线程执行完毕后在打印这个变量，输出的值肯定是1或者2（到底输出哪一个由操作系统的线程调度逻辑有关）。但使用ThreadLocal变量通过两个线程赋值后，在主线程程中输出的却是初始值0。在这也就是为什么“一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的”，每个线程都只能看到自己线程的值，这也就是 ThreadLocal的核心作用：实现线程范围的局部变量。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>Threadlocal 的源码分析</h2> <p class="maodian"><a name="_lab2_2_2" rel="nofollow"></a></p> <h3>原理</h3> <p>每个Thread对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。 这句话刚看可能不是很懂，下面我们一起看完源码就明白了。</p> <p>前面我们的理解是所有的常量值或者是引用类型的引用都是保存在ThreadLocal实例中的，但实际上不是的，这种说法只是让我们更好的理解ThreadLocal变量这个概念。向ThreadLocal存入一个值，实际上是向当前线程对象中的ThreadLocalMap存入值，ThreadLocalMap我们可以简单的理解成一个Map，而向这个Map存值的key就是ThreadLocal实例本身。</p> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>源码</h3> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/1353a73ea4fd5338baaa932f84b3a30f.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>????也就是说，想要存入的ThreadLocal中的数据实际上并没有存到ThreadLocal对象中去，而是以这个ThreadLocal实例作为key存到了当前线程中的一个Map中去了，获取ThreadLocal的值时同样也是这个道理。这也就是为什么ThreadLocal可以实现线程之间隔离的原因了。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>内部类ThreadLocalMap</h2> <p>ThreadLocalMap是ThreadLocal的内部类，实现了一套自己的Map结构✨</p> <p>ThreadLocalMap属性：</p> <div class="ay1code"> <pre class="brush:java;">          static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {              Object value;              Entry(ThreadLocal&lt;?&gt; k, Object v) {                  super(k);                  value = v;              }          }          //初始容量16          private static final int INITIAL_CAPACITY = 16;          //散列表          private Entry[] table;          //entry 有效数量           private int size = 0;          //负载因子          private int threshold;   </pre> </div> <p>ThreadLocalMap设置ThreadLocal 变量</p> <div class="ay1code"> <pre class="brush:java;">      private void set(ThreadLocal&lt;?&gt; key, Object value) {              Entry[] tab = table;              int len = tab.length;                            //与运算  &amp; (len-1) 这就是为什么 要求数组len 要求2的n次幂               //因为len减一后最后一个bit是1 与运算计算出来的数值下标 能保证全覆盖               //否者数组有效位会减半               //如果是hashmap 计算完下标后 会增加链表 或红黑树的查找计算量               int i = key.threadLocalHashCode &amp; (len-1);                            // 从下标位置开始向后循环搜索  不会死循环  有扩容因子 必定有空余槽点              for (Entry e = tab[i];   e != null;  e = tab[i = nextIndex(i, len)]) {                  ThreadLocal&lt;?&gt; k = e.get();                  //一种情况 是当前引用 返回值                  if (k == key) {                      e.value = value;                      return;                  }                  //槽点被GC掉 重设状态                   if (k == null) {                      replaceStaleEntry(key, value, i);                      return;                  }              }  			//槽点为空 设置value              tab[i] = new Entry(key, value);              //设置ThreadLocal数量              int sz = ++size;  			  			//没有可清理的槽点 并且数量大于负载因子 rehash              if (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)                  rehash();          }  </pre> </div> <p>ThreadLocalMap属性介绍????：</p> <ul> <li>和普通Hashmap类似存储在一个数组内，但与hashmap使用的拉链法解决散列冲突不同的是 ThreadLocalMap使用开放地址法</li> <li>数组 初始容量16，负载因子2/3</li> <li>node节点 的key封装了WeakReference 用于回收</li> </ul> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>ThreadLocalMap存储位置</h2> <p>储存在Thread中，有两个ThreadLocalMap变量</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/493da22b44e7b8b43b0dc25fd71e9dff.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>threadLocals 在ThreadLocal对象方法set中去创建 也由ThreadLocal来维护</p> <div class="ay1code"> <pre class="brush:java;">      public void set(T value) {          Thread t = Thread.currentThread();          ThreadLocalMap map = getMap(t);          if (map != null)              map.set(this, value);          else              createMap(t, value);      }        void createMap(Thread t, T firstValue) {          t.threadLocals = new ThreadLocalMap(this, firstValue);      }  </pre> </div> <p>inheritableThreadLocals 和ThreadLocal类似 InheritableThreadLocal重写了createMap方法</p> <div class="ay1code"> <pre class="brush:java;">  void createMap(Thread t, T firstValue) {          t.inheritableThreadLocals = new ThreadLocalMap(this, firstValue);      }  </pre> </div> <p>inheritableThreadLocals 作用是将ThreadLocalMap传递给子线程</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/6a8bc7246f93f9e8e75691adca23dc18.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>init方法中 条件满足后直接为子线程创建ThreadLocalMap</p> <p style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220427/25493e860f2e673bf444bce2cab6b84b.jpg" alt="Java 超详细讲解ThreadLocal类的使用_java"></p> <p>注意：</p> <ul> <li>仅在初始化子线程的时候会传递 中途改变副线程的inheritableThreadLocals 变量 不会将影响结果传递到子线程 。</li> <li>使用线程池要注意 线程不回收 尽量避免使用父线程的inheritableThreadLocals 导致错误</li> </ul> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>Key的弱引用问题</h2> <p>为什么要用弱引用,官方是这样回答的</p> <p>To help deal with very large and long-lived usages, the hash table entries use WeakReferences for keys.</p> <p>为了处理非常大和生命周期非常长的线程，哈希表使用弱引用作为 key。</p> <p>生命周期长的线程可以理解为：线程池的核心线程</p> <p>ThreadLocal在没有外部对象强引用时如Thread，发生GC时弱引用Key会被回收，而Value是强引用不会回收，如果创建ThreadLocal的线程一直持续运行如线程池中的线程，那么这个Entry对象中的value就有可能一直得不到回收，发生内存泄露。</p> <ul> <li>key 使用强引用????： 引用的ThreadLocal的对象被回收了，但是ThreadLocalMap还持有ThreadLocal的强引用，如果没有手动删除，ThreadLocal不会被回收，导致Entry内存泄漏。</li> <li>key 使用弱引用????： 引用的ThreadLocal的对象被回收了，由于ThreadLocalMap持有ThreadLocal的弱引用，即使没有手动删除，ThreadLocal也会被回收。value在下一次ThreadLocalMap调用set,get，remove的时候会被清除。</li> </ul> <p>Java8中已经做了一些优化如，在ThreadLocal的get()、set()、remove()方法调用的时候会清除掉线程ThreadLocalMap中所有Entry中Key为null的Value，并将整个Entry设置为null，利于下次内存回收。</p> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>java中的四种引用</h2> <ul> <li>强引用????： 如果一个对象具有强引用，它就不会被垃圾回收器回收。即使当前内存空间不足，JVM也不会回收它，而是抛出 OutOfMemoryError 错误，使程序异常终止。如果想中断强引用和某个对象之间的关联，可以显式地将引用赋值为null，这样一来的话，JVM在合适的时间就会回收该对象</li> <li>软引用????： 在使用软引用时，如果内存的空间足够，软引用就能继续被使用，而不会被垃圾回收器回收，只有在内存不足时，软引用才会被垃圾回收器回收。（软引用可用来实现内存敏感的高速缓存,比如网页缓存、图片缓存等。使用软引用能防止内存泄露，增强程序的健壮性）</li> <li>弱引用????： 具有弱引用的对象拥有的生命周期更短暂。因为当 JVM 进行垃圾回收，一旦发现弱引用对象，无论当前内存空间是否充足，都会将弱引用回收。不过由于垃圾回收器是一个优先级较低的线程，所以并不一定能迅速发现弱引用对象</li> <li>虚引用????： 虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。虚引用必须和引用队列（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。（注意哦，其它引用是被JVM回收后才被传入ReferenceQueue中的。由于这个机制，所以虚引用大多被用于引用销毁前的处理工作。可以使用在对象销毁前的一些操作，比如说资源释放等。）</li> </ul> <p>通常ThreadLocalMap的生命周期跟Thread（注意线程池中的Thread）一样长，如果没有手动删除对应key（线程使用结束归还给线程池了，其中的KV不再被使用但又不会GC回收，可认为是内存泄漏），一定会导致内存泄漏，但是使用弱引用可以多一层保障：弱引用ThreadLocal会被GC回收，不会内存泄漏，对应的value在下一次ThreadLocalMap调用set,get,remove的时候会被清除，Java8已经做了上面的代码优化。</p> <p class="maodian"><a name="_label7" rel="nofollow"></a></p> <h2>总结：</h2> <p>ThreadLocal的作用： 实现线程范围内的局部变量，即ThreadLocal在一个线程中是共享的，在不同线程之间是隔离的。</p> <p>ThreadLocal的原理： ThreadLocal存入值时使用当前ThreadLocal实例作为key（并不是以当前线程对象作为key），存入当前线程对象中的Map中去。最开始在看源码之前，我以为是以当前线程对象作为key将对象存入到ThreadLocal中的Map中去…</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72286.htm">吴启华个人资料简介（一篇读懂）吴启华 韩庚，白海龙，壹号皇庭5，</a></p>
+                                        <p>下一个：<a href="/news/article-72953.htm">12306宠物托运价格表（12306宠物托运官网）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-node-subscribe-links.htm" title="1月30日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">1月30日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42011.htm" title="宠物店一个月卖几只 宠物店一个月卖几只猫">宠物店一个月卖几只 宠物店一个月卖几只猫</a></li>
+                        <li class="py-2"><a href="/news/article-42504.htm" title="给动物打的疫苗人注射会有什么后果吗（给动物打的疫苗人注射会有什么后果吗图片）">给动物打的疫苗人注射会有什么后果吗（给动物打的疫苗人注射会有什么后果吗图片）</a></li>
+                        <li class="py-2"><a href="/news/article-36082.htm" title="小型宠物粮食加工设备价格（宠物粮食加工厂设备）">小型宠物粮食加工设备价格（宠物粮食加工厂设备）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-trojan-node.htm" title="2月25日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">2月25日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-trojan-windows.htm" title="2月17日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接">2月17日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-55286.htm" title="java class 文件格式解析">java class 文件格式解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-latest-trojan-node.htm" title="1月29日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月29日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50481.htm" title="python中sql查询in的使用">python中sql查询in的使用</a></li>
+                        <li class="py-2"><a href="/news/article-67719.htm" title="同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊">同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
