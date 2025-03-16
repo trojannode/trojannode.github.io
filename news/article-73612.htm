@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-73612.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>spring中jdbcTemplate.batchUpdate的几种使用情况_java</title>
+        <meta name="description" content="目录  1，batchUpdate（String[] sqls） 2，batchUpdate（String sql，List &lt;Object[]&gt; parms） 3，适用于我的解决方案  " />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-73612.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="spring中jdbcTemplate.batchUpdate的几种使用情况_java" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/e1cd3f0128d3ca4e5651b35e0ffc27ca.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:08" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:08" />
+        <meta property="og:description" content="目录  1，batchUpdate（String[] sqls） 2，batchUpdate（String sql，List &lt;Object[]&gt; parms） 3，适用于我的解决方案  " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spring中jdbcTemplate.batchUpdate的几种使用情况_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>spring中jdbcTemplate.batchUpdate的几种使用情况_java</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1，batchUpdate（String[] sqls）</a></li> <li><a href="#_label1" rel="nofollow">2，batchUpdate（String sql，List &lt;Object[]&gt; parms）</a></li> <li><a href="#_label2" rel="nofollow">3，适用于我的解决方案</a></li> </ul> </div> <p>在我做批量插入的过程中，由于数据库做了唯一约束，所以有些重复数据会出错，在我的设想中，除出错的数据，其它数据应该是都会插入的，但事实不是；</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1，batchUpdate（String[] sqls）</h2> <p>这种的sql在于多样化，可以是各种混合sql，在操作时，会一部分一部分的发送到数据库去执行，中途有某条sql报错时，后面的sql则不会执行，之前的sql则全部会执行提交，可在数据库看到变化;</p> <p>暂时没找到让后面sql执行的方法，搜了好久，都说不支持这种操作，都建议在sql之前做判错处理或trycatch后，再将sql一条一条的执行。</p> <div class="ay1code"> <pre class="brush:java;">public void a (){          try {              String[] sql = new String[4];              sql[0] = "insert into TEST(id) values (1)";              sql[1] = "insert into TEST(id) values (2)";              sql[2] = "insert into TEST(id) values (1)";              sql[3] = "insert into TEST(id) values (3)";              jdbcTemplate.batchUpdate(sql);          } catch (DataAccessException e) {              e.printStackTrace();          }  }  </pre> </div> <p>在ID为主键的情况下，这个只会插入1和2，提示批处理中出现错误: ORA-00001: 违反唯一约束条件。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2，batchUpdate（String sql，List &lt;Object[]&gt; parms）</h2> <p>这种的sql在于效率，固定的sql，变化的参数，操作时间会极大减少，默认情况下，当中途有数据报错时，会全部回滚，不提交，所以是全部插入或者全部不插入；</p> <div class="ay1code"> <pre class="brush:java;">public void b (){          try {              String sql = "insert into TEST(id) values (?)";              List&lt;Object[]&gt; list = new ArrayList&lt;&gt;();              for (int i = 0; i &lt; 4; i++) {                  String[] sqls = new String[1];                  sqls[0] = i +"";                  if(i == 2){ // 增加一条异常数据                      sqls[0] = i-1 +"";                  }                  list.add(sqls);              }              jdbcTemplate.batchUpdate(sql,list);          } catch (DataAccessException e) {              e.printStackTrace();          }      }  </pre> </div> <p>这个全部都不会插入，提示批处理中出现错误: ORA-00001: 违反唯一约束条件。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3，适用于我的解决方案</h2> <p>对sql处理处理了一下，对要插入的数据做了是否存在判断，如果不存在，则插入；用not EXISTS 判断要插入的数据或有主键约束或有唯一约束的数据是否存在；</p> <div class="ay1code"> <pre class="brush:java;">public void b (){          try {              String[] sql = new String[2];              sql[0] = "insert into TEST(id) values (1)";              sql[1] = "insert into TEST(id) " +                             "select '1' from dual where not EXISTS(SELECT id FROM TEST WHERE id = '1')";              sql[2] = "insert into TEST(id) values (2)";              jdbcTemplate.batchUpdate(sql);          } catch (DataAccessException e) {              e.printStackTrace();          }      }  </pre> </div> <p>会插入1和2。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72953.htm">12306宠物托运价格表（12306宠物托运官网）</a></p>
+                                        <p>下一个：<a href="/news/article-73613.htm">上海免费领养猫上海宠物领（上海有没有免费领养宠物的）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67076.htm" title="动物疫苗的种类和制备原理是什么意思 动物疫苗的种类和制备原理是什么意思啊">动物疫苗的种类和制备原理是什么意思 动物疫苗的种类和制备原理是什么意思啊</a></li>
+                        <li class="py-2"><a href="/news/article-53119.htm" title="Python——Fibonacci斐波那契数列的函数fib(n) 输出前20项（每项宽度5字符位置，右对齐），每行输出10个 递归和非递归实现">Python——Fibonacci斐波那契数列的函数fib(n) 输出前20项（每项宽度5字符位置，右对齐），每行输出10个 递归和非递归实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-trojan-windows.htm" title="2月2日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">2月2日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-high-speed-nodes.htm" title="3月10日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接">3月10日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-trojan-node-share.htm" title="3月14日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">3月14日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43496.htm" title="天宫院解除隔离（天宫院解除隔离通知）">天宫院解除隔离（天宫院解除隔离通知）</a></li>
+                        <li class="py-2"><a href="/news/article-73612.htm" title="spring中jdbcTemplate.batchUpdate的几种使用情况_java">spring中jdbcTemplate.batchUpdate的几种使用情况_java</a></li>
+                        <li class="py-2"><a href="/news/article-40037.htm" title="动物医院英文怎么写的啊翻译 动物医院英文怎么写的啊翻译成中文">动物医院英文怎么写的啊翻译 动物医院英文怎么写的啊翻译成中文</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-trojan-node-share.htm" title="1月16日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">1月16日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-trojan-github.htm" title="1月5日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">1月5日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
