@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://trojannode.github.io/news/article-98567.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>JavaScript如何从数组中滤除素数</title>
+        <meta name="description" content="我们需要编写一个JavaScript函数，该函数接受以下数字数组， const&nbsp;arr&nbsp;=&nbsp;[34,&nbsp;56,&nbsp;3,&nbsp;56,&nbsp;4,&" />
+        <link rel="icon" href="/assets/website/img/trojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://trojannode.github.io/news/article-98567.htm" />
+    <meta property="og:site_name" content="TrojanNode免费节点官网" />
+    <meta property="og:title" content="JavaScript如何从数组中滤除素数" />
+    <meta property="og:image" content="https://trojannode.github.io/uploads/20240807/b5db30fbbaeb6676f7339c16e3172cb8.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:39:40" />
+    <meta property="og:updated_time" content="2025-04-18T09:39:40" />
+        <meta property="og:description" content="我们需要编写一个JavaScript函数，该函数接受以下数字数组， const&nbsp;arr&nbsp;=&nbsp;[34,&nbsp;56,&nbsp;3,&nbsp;56,&nbsp;4,&" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript如何从数组中滤除素数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/trojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/trojannode/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-THYLRGLVV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-THYLRGLVV9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/">
+                        <span class="logo">Trojan Node</span>
+                        </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>JavaScript如何从数组中滤除素数</h2>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<p>我们需要编写一个JavaScript函数，该函数接受以下数字数组，</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[34,&nbsp;56,&nbsp;3,&nbsp;56,&nbsp;4,&nbsp;343,&nbsp;68,&nbsp;56,&nbsp;34,&nbsp;87,&nbsp;8,&nbsp;45,&nbsp;34];</pre> <p>并返回一个不包含任何质数的新过滤数组。</p> <h2>示例</h2> <p>以下是代码-</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[34,&nbsp;56,&nbsp;3,&nbsp;56,&nbsp;4,&nbsp;343,&nbsp;68,&nbsp;56,&nbsp;34,&nbsp;87,&nbsp;8,&nbsp;45,&nbsp;34]; const&nbsp;isPrime&nbsp;=&nbsp;n&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;if&nbsp;(n===1){ &nbsp;&nbsp;&nbsp;return&nbsp;false; &nbsp;&nbsp;&nbsp;}else&nbsp;if(n&nbsp;===&nbsp;2){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true; &nbsp;&nbsp;&nbsp;}else{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(let&nbsp;x&nbsp;=&nbsp;2;&nbsp;x&nbsp;&lt;&nbsp;n;&nbsp;x++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(n&nbsp;%&nbsp;x&nbsp;===&nbsp;0){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true; &nbsp;&nbsp;&nbsp;}; }; const&nbsp;filterPrime&nbsp;=&nbsp;arr&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;const&nbsp;filtered&nbsp;=&nbsp;arr.filter(el&nbsp;=&gt;&nbsp;!isPrime(el)); &nbsp;&nbsp;&nbsp;return&nbsp;filtered; }; console.log(filterPrime(arr));</pre> <p>输出结果</p> <p>以下是控制台中的输出-</p> <pre>[ &nbsp;&nbsp;&nbsp;34,&nbsp;56,&nbsp;56,&nbsp;&nbsp;4,&nbsp;343, &nbsp;&nbsp;&nbsp;68,&nbsp;56,&nbsp;34,&nbsp;87,&nbsp;&nbsp;&nbsp;8, &nbsp;&nbsp;&nbsp;45,&nbsp;34 ]</pre> <div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97881.htm">三国杀武将牌规则（三国杀武将牌标准）</a></p>
+                                        <p>下一个：<a href="/news/article-98568.htm">动物医院实践心得体会总结范文图片（动物医院社会实践总结）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-88972.htm" title="T型插补C++实现">T型插补C++实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-12-free-trojan-node.htm" title="4月12日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">4月12日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-70294.htm" title="动物防疫疫苗种类有哪些类型（动物疫苗法最新消息2019）">动物防疫疫苗种类有哪些类型（动物疫苗法最新消息2019）</a></li>
+                        <li class="py-2"><a href="/news/article-98567.htm" title="JavaScript如何从数组中滤除素数">JavaScript如何从数组中滤除素数</a></li>
+                        <li class="py-2"><a href="/news/article-76997.htm" title="小动物打疫苗发盆友圈说说句子（动物打防疫针）">小动物打疫苗发盆友圈说说句子（动物打防疫针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-node-share-links.htm" title="4月1日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">4月1日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-trojan-node-share.htm" title="4月6日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接">4月6日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-95695.htm" title="猫咪三针疫苗间隔多久打第三针（猫咪三针疫苗间隔多久打第三针疫苗）">猫咪三针疫苗间隔多久打第三针（猫咪三针疫苗间隔多久打第三针疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-86787.htm" title="深圳市宠物领养中领养猫咪要钱吗（宠物领养 深圳）">深圳市宠物领养中领养猫咪要钱吗（宠物领养 深圳）</a></li>
+                        <li class="py-2"><a href="/news/article-79036.htm" title="猫咪全套疫苗打下来要多少钱（猫三联最晚什么时候打）">猫咪全套疫苗打下来要多少钱（猫三联最晚什么时候打）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">TrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/trojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/trojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/trojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
