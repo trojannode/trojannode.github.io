@@ -256,16 +256,6 @@ git push origin main
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
-    <div class="panel-body">
-        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持订阅更新？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 支持通过订阅链接更新节点。用户在设置中输入 URL 后，应用会定期拉取最新配置文件，实现自动更新节点信息。这让日常使用更加便捷和稳定。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 节点健康检测如何提高稳定性？</h5></div>
     <div class="panel-body">
         WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的速度和稳定性。<hr />    </div>
@@ -276,14 +266,19 @@ git push origin main
         用户可添加订阅 URL，Nekoray 定期自动下载并更新节点。这样可保持节点列表最新，有效减少手动维护，提高使用效率，同时保证网络连接稳定和可靠。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
-    <div class="panel-body">
-        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的策略组支持哪些节点选择策略？</h5></div>
     <div class="panel-body">
         支持按延迟选择、随机选择、轮询或手动选择节点。结合规则匹配，用户可实现不同网站或应用使用不同节点，提高访问速度和网络稳定性，同时降低管理复杂度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
+    <div class="panel-body">
+        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
+    <div class="panel-body">
+        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 如何分流多协议流量？</h5></div>
@@ -291,14 +286,19 @@ git push origin main
         Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多协议节点，通过策略组将不同流量分配到指定节点，实现精准分流，提高网络效率和管理便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持订阅更新？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 支持通过订阅链接更新节点。用户在设置中输入 URL 后，应用会定期拉取最新配置文件，实现自动更新节点信息。这让日常使用更加便捷和稳定。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
+    <div class="panel-body">
+        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 策略组如何自动优化网络访问？</h5></div>
     <div class="panel-body">
         PassWall2 结合策略组和延迟检测功能，自动选择最佳节点处理网页、视频和游戏流量。无需手动切换，保证访问速度和稳定性，提升整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
-    <div class="panel-body">
-        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 无法代理游戏怎么办？</h5></div>
@@ -332,16 +332,16 @@ git push origin main
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-1-14-free-high-speed-nodes.htm" title="1月14日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月14日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-10-free-subscribe-node.htm" title="2月10日 | Trojan节点订阅每天更新19M/S免费节点订阅链接">2月10日 | Trojan节点订阅每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-3-node-share.htm" title="2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-26-trojan-windows.htm" title="1月26日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">1月26日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-8-trojan-windows.htm" title="2月8日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">2月8日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-2-node-share.htm" title="2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-5-free-high-speed-nodes.htm" title="2月5日 | Trojan节点订阅每天更新20M/S免费节点订阅链接">2月5日 | Trojan节点订阅每天更新20M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-11-free-high-speed-nodes.htm" title="1月11日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">1月11日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-4-trojan-node-share.htm" title="2月4日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接">2月4日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-6-free-node-subscribe.htm" title="2月6日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">2月6日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-1-latest-trojan-node.htm" title="2月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">2月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-6-free-node-subscribe.htm" title="1月6日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接">1月6日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-23-trojan-windows.htm" title="1月23日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">1月23日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-5-node-share.htm" title="1月5日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接">1月5日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-9-free-trojan-node.htm" title="1月9日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">1月9日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-12-trojan-windows.htm" title="2月12日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">2月12日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-14-free-high-speed-nodes.htm" title="1月14日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月14日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-21-latest-trojan-node.htm" title="1月21日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接">1月21日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-13-node-share-links.htm" title="2月13日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">2月13日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -353,10 +353,10 @@ git push origin main
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                     </ul>
     </div>

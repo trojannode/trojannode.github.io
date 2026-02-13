@@ -246,27 +246,13 @@ bash opkg install v2ray</span><span><span class="hljs-operator">-</span></span><
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-2-5-free-high-speed-nodes.htm">2月5日 | Trojan节点订阅每天更新20M/S免费节点订阅链接</a></p>
+        <p>下一个：<a href="/free-nodes/2026-2-7-today-trojan-node.htm">2月7日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何导入订阅？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的节点导入方式有哪些？</h5></div>
     <div class="panel-body">
-        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 如何分流多协议流量？</h5></div>
-    <div class="panel-body">
-        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多协议节点，通过策略组将不同流量分配到指定节点，实现精准分流，提高网络效率和管理便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的延迟测速功能如何提高网络体验？</h5></div>
-    <div class="panel-body">
-        PassWall2 可以定期测速节点延迟，并结合策略组自动选择最优节点。这样在访问网站或视频时，可以始终使用延迟最低的线路，提高网络稳定性和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 如何配置透明代理？</h5></div>
-    <div class="panel-body">
-        Mellow 通过 tun2socks 技术实现透明代理。只需在配置文件中启用该功能，系统所有网络流量都会自动转发到代理内核，用户无需手动设置系统代理参数。<hr />    </div>
+        WinXray 支持手动添加节点、从 URL 订阅导入节点，以及批量导入 JSON 配置文件。用户可以直接复制订阅地址或粘贴节点链接，程序会自动解析并添加到节点列表中，操作十分便捷。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何判断节点是否支持 UDP 转发以便游戏加速？</h5></div>
@@ -274,9 +260,9 @@ bash opkg install v2ray</span><span><span class="hljs-operator">-</span></span><
         可通过客户端的协议与节点说明确认是否支持 UDP（例如支持 UDP Relay 或 TUN/TAP 模式）。也可实际用 UDP 测试工具或直接用目标游戏连接进行延迟/丢包测试以验证是否可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆参数如何选择才能兼顾速度与隐蔽性？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何导入订阅？</h5></div>
     <div class="panel-body">
-        混淆参数建议根据网络环境选择，一般 http_simple 兼容性最好，tls1.2_ticket_auth 隐蔽性更强。若节点在国内访问，选择简单混淆可提升速度，若跨境访问频繁则推荐 TLS 混淆提高安全性。<hr />    </div>
+        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 是否比 Clash Meta 更快？</h5></div>
@@ -284,19 +270,34 @@ bash opkg install v2ray</span><span><span class="hljs-operator">-</span></span><
         Mihomo 是 Clash Meta 的优化分支，采用最新 Go 语言版本编译并针对多线程性能进行了改进。整体运行效率略高，特别是在多节点切换和 DNS 分流方面表现更流畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆参数如何选择才能兼顾速度与隐蔽性？</h5></div>
+    <div class="panel-body">
+        混淆参数建议根据网络环境选择，一般 http_simple 兼容性最好，tls1.2_ticket_auth 隐蔽性更强。若节点在国内访问，选择简单混淆可提升速度，若跨境访问频繁则推荐 TLS 混淆提高安全性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
+    <div class="panel-body">
+        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 如何分流多协议流量？</h5></div>
+    <div class="panel-body">
+        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多协议节点，通过策略组将不同流量分配到指定节点，实现精准分流，提高网络效率和管理便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 如何配置透明代理？</h5></div>
+    <div class="panel-body">
+        Mellow 通过 tun2socks 技术实现透明代理。只需在配置文件中启用该功能，系统所有网络流量都会自动转发到代理内核，用户无需手动设置系统代理参数。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 支持订阅更新吗？</h5></div>
     <div class="panel-body">
         支持。Matsuri 内置订阅更新模块，可自动检测链接变化并定期刷新节点。用户还可手动点击更新按钮同步最新配置，保持网络连接的可用性与速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的节点导入方式有哪些？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 的延迟测速功能如何提高网络体验？</h5></div>
     <div class="panel-body">
-        WinXray 支持手动添加节点、从 URL 订阅导入节点，以及批量导入 JSON 配置文件。用户可以直接复制订阅地址或粘贴节点链接，程序会自动解析并添加到节点列表中，操作十分便捷。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
-    <div class="panel-body">
-        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。    </div>
+        PassWall2 可以定期测速节点延迟，并结合策略组自动选择最优节点。这样在访问网站或视频时，可以始终使用延迟最低的线路，提高网络稳定性和速度。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -325,16 +326,16 @@ bash opkg install v2ray</span><span><span class="hljs-operator">-</span></span><
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2026-2-1-latest-trojan-node.htm" title="2月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">2月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-2-node-share.htm" title="2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-17-today-trojan-node.htm" title="1月17日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">1月17日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-5-free-high-speed-nodes.htm" title="2月5日 | Trojan节点订阅每天更新20M/S免费节点订阅链接">2月5日 | Trojan节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-12-trojan-windows.htm" title="2月12日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">2月12日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-27-trojan-github.htm" title="1月27日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">1月27日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-3-node-share.htm" title="2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-15-free-high-speed-nodes.htm" title="1月15日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">1月15日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-1-30-free-high-speed-nodes.htm" title="1月30日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">1月30日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-1-23-trojan-windows.htm" title="1月23日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">1月23日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-3-node-share.htm" title="2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">2月3日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-16-today-trojan-node.htm" title="1月16日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接">1月16日 | Trojan节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-24-trojan-windows.htm" title="1月24日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接">1月24日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-18-free-subscribe-node.htm" title="1月18日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">1月18日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-26-trojan-windows.htm" title="1月26日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">1月26日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-8-trojan-windows.htm" title="1月8日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接">1月8日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-7-free-high-speed-nodes.htm" title="1月7日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">1月7日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-15-free-high-speed-nodes.htm" title="1月15日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">1月15日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -346,10 +347,10 @@ bash opkg install v2ray</span><span><span class="hljs-operator">-</span></span><
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                     </ul>
     </div>
