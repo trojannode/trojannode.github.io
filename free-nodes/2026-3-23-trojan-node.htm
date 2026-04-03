@@ -326,24 +326,14 @@ opkg install v2ray-core
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
+    <div class="panel-body">
+        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
     <div class="panel-body">
         QUIC 基于 UDP 支持多路复用和零握手，降低延迟，提高吞吐量。适合高丢包、不稳定网络环境，可保证视频、游戏和即时通讯流量的稳定性和流畅体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 的自动策略组如何工作？</h5></div>
-    <div class="panel-body">
-        Quantumult X 的自动策略组可根据延迟、可用性或测速结果自动选择最优节点，用户无需手动切换。可在策略组设置中开启“延迟优先”或“可用性优先”模式以优化体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的分流规则支持哪些条件？</h5></div>
-    <div class="panel-body">
-        支持按域名、IP 地址、端口、请求路径、协议类型或关键词进行分流。结合策略组，可实现广告屏蔽、视频加速、游戏优化等多种自定义网络策略。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否可以手动管理多个节点？</h5></div>
-    <div class="panel-body">
-        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的混淆参数该如何填写？</h5></div>
@@ -351,19 +341,19 @@ opkg install v2ray-core
         SSR 混淆参数位于节点配置中，通常选择如 tls1.2_ticket_auth 或 http_simple。参数字段可以自定义伪装主机或路径，以模拟正常流量行为，从而提高隐蔽性和抗封锁能力。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 能否同步 iCloud 配置？</h5></div>
+    <div class="panel-heading"><h5>Quantumult X 的自动策略组如何工作？</h5></div>
     <div class="panel-body">
-        可以。Surfboard 支持 iCloud 同步功能，用户可在不同苹果设备上共享同一配置文件。这样即使更换手机或重装系统，也能自动恢复节点与分流设置。<hr />    </div>
+        Quantumult X 的自动策略组可根据延迟、可用性或测速结果自动选择最优节点，用户无需手动切换。可在策略组设置中开启“延迟优先”或“可用性优先”模式以优化体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 协议是如何伪装流量的？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 是否可以手动管理多个节点？</h5></div>
     <div class="panel-body">
-        Trojan 利用 HTTPS 协议进行传输伪装，通过 TLS 加密实现高度隐蔽性。它让代理流量看起来与普通网站访问完全相同，从而难以被防火墙检测，是目前安全性较高的代理方案之一。<hr />    </div>
+        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
+    <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
     <div class="panel-body">
-        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
+        Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 的多用户限速功能如何使用？</h5></div>
@@ -371,9 +361,19 @@ opkg install v2ray-core
         Hiddify Next 支持在管理面板中为每个用户设置带宽上限。管理员可以按需分配速率或流量配额，防止单一用户占用过多资源，从而保持整体网络稳定。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
+    <div class="panel-heading"><h5>Trojan 协议是如何伪装流量的？</h5></div>
     <div class="panel-body">
-        Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。    </div>
+        Trojan 利用 HTTPS 协议进行传输伪装，通过 TLS 加密实现高度隐蔽性。它让代理流量看起来与普通网站访问完全相同，从而难以被防火墙检测，是目前安全性较高的代理方案之一。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 能否同步 iCloud 配置？</h5></div>
+    <div class="panel-body">
+        可以。Surfboard 支持 iCloud 同步功能，用户可在不同苹果设备上共享同一配置文件。这样即使更换手机或重装系统，也能自动恢复节点与分流设置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 的分流规则支持哪些条件？</h5></div>
+    <div class="panel-body">
+        支持按域名、IP 地址、端口、请求路径、协议类型或关键词进行分流。结合策略组，可实现广告屏蔽、视频加速、游戏优化等多种自定义网络策略。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -402,15 +402,15 @@ opkg install v2ray-core
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-1-22-free-high-speed-nodes.htm" title="1月22日 | Trojan节点订阅每天更新18.3M/S免费节点订阅链接">1月22日 | Trojan节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-19-trojan-node.htm" title="3月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">3月19日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-30-free-high-speed-nodes.htm" title="1月30日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">1月30日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-7-free-node-subscribe.htm" title="3月7日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接">3月7日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-17-latest-trojan-node.htm" title="2月17日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">2月17日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-24-free-high-speed-nodes.htm" title="2月24日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接">2月24日 | Trojan节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-11-trojan-github.htm" title="2月11日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">2月11日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-2-node-share.htm" title="2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">2月2日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-10-free-subscribe-node.htm" title="2月10日 | Trojan节点订阅每天更新19M/S免费节点订阅链接">2月10日 | Trojan节点订阅每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-2-today-trojan-node.htm" title="4月2日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">4月2日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-30-trojan-windows.htm" title="3月30日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">3月30日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-6-node-share-links.htm" title="3月6日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">3月6日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-18-free-subscribe-node.htm" title="3月18日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">3月18日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-16-free-node-subscribe.htm" title="3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-28-free-high-speed-nodes.htm" title="3月28日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">3月28日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-5-node-share.htm" title="3月5日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">3月5日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-11-trojan-github.htm" title="3月11日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">3月11日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-12-latest-trojan-node.htm" title="3月12日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">3月12日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-27-free-node-subscribe.htm" title="3月27日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">3月27日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
@@ -423,13 +423,10 @@ opkg install v2ray-core
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+            </li>
+                        <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                     </ul>
     </div>
