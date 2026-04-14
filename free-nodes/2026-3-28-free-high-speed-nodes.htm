@@ -334,6 +334,26 @@ Clash支持Windows、macOS和Linux操作系统。</p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 支持按端口和协议分流吗？</h5></div>
+    <div class="panel-body">
+        支持。QuantumultX 可以按 TCP、UDP、端口和应用协议分流流量，结合策略组使用，确保游戏、视频和广告屏蔽走最优节点，提高访问速度和网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 与 Clash 有什么区别？</h5></div>
+    <div class="panel-body">
+        V2Ray 是一款代理核心工具，提供底层网络传输和加密支持；而 Clash 是一个多协议客户端，可以整合 V2Ray、Trojan、Shadowsocks 等多种协议。简而言之，V2Ray 负责“传输”，Clash 负责“管理与分流”。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 是什么？它与 Shadowsocks 有何不同？</h5></div>
+    <div class="panel-body">
+        SSR（ShadowsocksR）是 Shadowsocks 的增强版本，增加了多种混淆与加密方式，提高了抗封锁能力。与原版相比，SSR 的兼容性更强，但目前已停止维护，许多用户正逐渐迁移到更先进的 V2Ray 或 Trojan 协议上。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的规则订阅更新频率如何设置？</h5></div>
     <div class="panel-body">
         Clash 支持设置订阅规则的更新频率，例如每小时或每天。定期更新可保证节点和规则最新，减少手动维护，提高访问速度和分流效率，同时保持网络稳定性。<hr />    </div>
@@ -344,14 +364,14 @@ Clash支持Windows、macOS和Linux操作系统。</p>
         PAC 模式通过规则动态决定流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，自动分流提高网络访问效率和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 是什么？它与 Shadowsocks 有何不同？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
     <div class="panel-body">
-        SSR（ShadowsocksR）是 Shadowsocks 的增强版本，增加了多种混淆与加密方式，提高了抗封锁能力。与原版相比，SSR 的兼容性更强，但目前已停止维护，许多用户正逐渐迁移到更先进的 V2Ray 或 Trojan 协议上。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密在封锁严格地区的作用？</h5></div>
     <div class="panel-body">
-        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
+        AEAD 加密防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>当 V2Ray 报错 inbound 没有监听，可能是哪些配置问题？</h5></div>
@@ -361,27 +381,7 @@ Clash支持Windows、macOS和Linux操作系统。</p>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议和混淆组合如何选择？</h5></div>
     <div class="panel-body">
-        根据网络封锁情况选择合适协议和混淆组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。选择最佳组合可提高抗封锁能力和稳定性，保证节点长期可用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在封锁严格地区的作用？</h5></div>
-    <div class="panel-body">
-        AEAD 加密防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 支持按端口和协议分流吗？</h5></div>
-    <div class="panel-body">
-        支持。QuantumultX 可以按 TCP、UDP、端口和应用协议分流流量，结合策略组使用，确保游戏、视频和广告屏蔽走最优节点，提高访问速度和网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 与 Clash 有什么区别？</h5></div>
-    <div class="panel-body">
-        V2Ray 是一款代理核心工具，提供底层网络传输和加密支持；而 Clash 是一个多协议客户端，可以整合 V2Ray、Trojan、Shadowsocks 等多种协议。简而言之，V2Ray 负责“传输”，Clash 负责“管理与分流”。    </div>
+        根据网络封锁情况选择合适协议和混淆组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。选择最佳组合可提高抗封锁能力和稳定性，保证节点长期可用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -410,16 +410,16 @@ Clash支持Windows、macOS和Linux操作系统。</p>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-free-node-subscribe.htm" title="3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-21-node-share-links.htm" title="3月21日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接">3月21日 | Trojan节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-23-trojan-node.htm" title="3月23日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接">3月23日 | Trojan节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-17-free-node-subscribe.htm" title="3月17日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接">3月17日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-2-today-trojan-node.htm" title="4月2日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">4月2日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-11-trojan-github.htm" title="3月11日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接">3月11日 | Trojan节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-12-latest-trojan-node.htm" title="3月12日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接">3月12日 | Trojan节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-20-free-high-speed-nodes.htm" title="3月20日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接">3月20日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-4-node-share.htm" title="3月4日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">3月4日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-26-free-node-subscribe.htm" title="3月26日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">3月26日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-27-free-node-subscribe.htm" title="3月27日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">3月27日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-11-free-trojan-node.htm" title="4月11日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">4月11日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-6-node-share-links.htm" title="3月6日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">3月6日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-16-free-node-subscribe.htm" title="3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">3月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-node-subscribe.htm" title="4月9日 | Trojan节点订阅每天更新22.6M/S免费节点订阅链接">4月9日 | Trojan节点订阅每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-13-trojan-node.htm" title="3月13日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">3月13日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-29-free-subscribe-node.htm" title="3月29日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接">3月29日 | Trojan节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-8-today-trojan-node.htm" title="3月8日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">3月8日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-15-trojan-node.htm" title="3月15日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接">3月15日 | Trojan节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -431,7 +431,7 @@ Clash支持Windows、macOS和Linux操作系统。</p>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
