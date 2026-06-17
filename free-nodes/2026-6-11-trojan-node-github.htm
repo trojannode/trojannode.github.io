@@ -266,12 +266,13 @@ A4：在应用内进入“帮助与反馈”，选择在线客服或提交问题
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-6-10-trojan-node.htm">6月10日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接</a></p>
+        <p>下一个：<a href="/free-nodes/2026-6-12-trojan-github.htm">6月12日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLess + Reality 的优势主要体现在哪些方面？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
     <div class="panel-body">
-        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。<hr />    </div>
+        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
@@ -279,34 +280,14 @@ A4：在应用内进入“帮助与反馈”，选择在线客服或提交问题
         管理员可为每个用户设置上传和下载带宽上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体公平性和使用效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 导入 Clash 订阅后规则丢失，可能原因？</h5></div>
-    <div class="panel-body">
-        部分客户端在解析订阅时只保留节点信息而忽略 rules 或 proxies-group，建议使用支持完整解析的订阅转换器（如 sub-converter）先将订阅转换为兼容格式再导入，或手动合并规则文件。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash.Meta 与原版 Clash 有何不同？</h5></div>
     <div class="panel-body">
         Clash.Meta 是社区优化版本，支持更多传输协议，如 Hysteria、TUIC、Reality 等。它还增强了 DNS 处理逻辑和脚本分流能力，适合追求极致速度和灵活规则配置的高级用户。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆插件如何提高抗封锁能力？</h5></div>
-    <div class="panel-body">
-        通过混淆插件可以模拟正常 HTTPS 或 HTTP 流量，隐藏真实通信特征。合理选择混淆方式，可有效避免 DPI 检测，提高节点可用性和连接稳定性，保证长期科学上网。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
-    <div class="panel-body">
-        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 与 Hiddify Next 有什么区别？</h5></div>
     <div class="panel-body">
         Nekobox 更注重轻量化和本地化，界面简洁，支持多协议基础功能；而 Hiddify Next 则整合了订阅转换、测速、规则分流等高级功能，更适合技术用户使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
-    <div class="panel-body">
-        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
@@ -316,7 +297,27 @@ A4：在应用内进入“帮助与反馈”，选择在线客服或提交问题
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 模式如何隐藏流量特征？</h5></div>
     <div class="panel-body">
-        Reality 模式通过伪装握手和真实网站特征，使流量难以被 DPI 检测。结合策略组使用，可有效隐藏节点通信特征，同时保持安全和高速传输，适合高封锁环境。    </div>
+        Reality 模式通过伪装握手和真实网站特征，使流量难以被 DPI 检测。结合策略组使用，可有效隐藏节点通信特征，同时保持安全和高速传输，适合高封锁环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
+    <div class="panel-body">
+        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 导入 Clash 订阅后规则丢失，可能原因？</h5></div>
+    <div class="panel-body">
+        部分客户端在解析订阅时只保留节点信息而忽略 rules 或 proxies-group，建议使用支持完整解析的订阅转换器（如 sub-converter）先将订阅转换为兼容格式再导入，或手动合并规则文件。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆插件如何提高抗封锁能力？</h5></div>
+    <div class="panel-body">
+        通过混淆插件可以模拟正常 HTTPS 或 HTTP 流量，隐藏真实通信特征。合理选择混淆方式，可有效避免 DPI 检测，提高节点可用性和连接稳定性，保证长期科学上网。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLess + Reality 的优势主要体现在哪些方面？</h5></div>
+    <div class="panel-body">
+        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -366,16 +367,16 @@ A4：在应用内进入“帮助与反馈”，选择在线客服或提交问题
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-9-trojan-node-share.htm" title="5月9日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接">5月9日 | Trojan节点订阅每天更新18.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-12-free-high-speed-nodes.htm" title="5月12日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">5月12日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-31-free-subscribe-node.htm" title="5月31日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接">5月31日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-7-free-node-subscribe.htm" title="5月7日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接">5月7日 | Trojan节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-2-node-share-links.htm" title="6月2日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接">6月2日 | Trojan节点订阅每天更新20.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-6-free-trojan-node.htm" title="5月6日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接">5月6日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-10-trojan-node-github.htm" title="5月10日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">5月10日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-23-free-trojan-node.htm" title="5月23日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">5月23日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-8-trojan-github.htm" title="6月8日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接">6月8日 | Trojan节点订阅每天更新20.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-16-trojan-node-github.htm" title="5月16日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接">5月16日 | Trojan节点订阅每天更新22.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-24-trojan-node-share.htm" title="5月24日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接">5月24日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-7-trojan-node.htm" title="6月7日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">6月7日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-18-free-subscribe-node.htm" title="6月18日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">6月18日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-22-free-trojan-node.htm" title="5月22日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接">5月22日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-14-trojan-node.htm" title="6月14日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">6月14日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-6-1-free-subscribe-node.htm" title="6月1日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">6月1日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-28-free-subscribe-node.htm" title="5月28日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">5月28日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-30-free-high-speed-nodes.htm" title="5月30日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接">5月30日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-12-free-high-speed-nodes.htm" title="5月12日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">5月12日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -387,7 +388,7 @@ A4：在应用内进入“帮助与反馈”，选择在线客服或提交问题
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
