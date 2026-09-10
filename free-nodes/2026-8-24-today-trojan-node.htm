@@ -302,39 +302,9 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口分流不同流量？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同应用分配到指定节点。结合策略组使用，可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持多节点测试？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 支持手动测试单个节点延迟，但不支持批量自动测速。用户需逐个连接测试节点性能，或者结合其他客户端获取更全面的测速信息。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
-    <div class="panel-body">
-        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的多路复用在短连接场景下有什么优势？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，能提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的节点延迟过高怎么办？</h5></div>
     <div class="panel-body">
         可通过策略组切换低延迟节点，或调整传输协议和端口。检查服务器网络和防火墙设置，确保网络通畅。必要时可启用 MUX 功能减少短连接延迟，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
-    <div class="panel-body">
-        如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆方式如何选择最合适？</h5></div>
-    <div class="panel-body">
-        根据网络环境选择适合的混淆方式，如 tls1.2_ticket_auth 模拟 HTTPS 流量，可隐藏真实特征。结合协议插件使用，可以提高抗封锁能力和节点可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的伪装域名配置需要注意什么？</h5></div>
@@ -342,14 +312,44 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
         伪装域名必须真实可访问并有有效证书，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁风险，保证节点长期稳定可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持多节点测试？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 支持手动测试单个节点延迟，但不支持批量自动测速。用户需逐个连接测试节点性能，或者结合其他客户端获取更全面的测速信息。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
+    <div class="panel-body">
+        如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 如何实现节点订阅自动更新？</h5></div>
     <div class="panel-body">
         支持订阅 URL 自动更新节点，程序定期下载并替换旧节点。保证节点列表最新，减少手动维护，提高使用效率和便利性，同时保证网络访问稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆方式如何选择最合适？</h5></div>
+    <div class="panel-body">
+        根据网络环境选择适合的混淆方式，如 tls1.2_ticket_auth 模拟 HTTPS 流量，可隐藏真实特征。结合协议插件使用，可以提高抗封锁能力和节点可用性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的多路复用在短连接场景下有什么优势？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，能提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密在封锁严格地区的作用？</h5></div>
     <div class="panel-body">
-        AEAD 加密防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户体验。    </div>
+        AEAD 加密防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何按端口分流不同流量？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持按端口匹配流量，将不同应用分配到指定节点。结合策略组使用，可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
+    <div class="panel-body">
+        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -397,16 +397,16 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-8-19.htm" title="8月19日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接">8月19日 | Trojan节点订阅每天更新20.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-trojan-node-share.htm" title="7月25日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">7月25日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/trojan-node-github-2026-8-3.htm" title="8月3日 | Trojan节点订阅每天更新19.8M/S免费节点订阅链接">8月3日 | Trojan节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-20-node-share.htm" title="8月20日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">8月20日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-subscribe-node.htm" title="8月14日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">8月14日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-1.htm" title="9月1日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">9月1日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="8月12日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接">8月12日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-share-2026-8-31.htm" title="8月31日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接">8月31日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-27.htm" title="8月27日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接">8月27日 | Trojan节点订阅每天更新19.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-trojan-node.htm" title="8月6日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">8月6日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-github-2026-8-13.htm" title="8月13日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">8月13日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-26-today-trojan-node.htm" title="8月26日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接">8月26日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-19-free-high-speed-nodes.htm" title="7月19日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接">7月19日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-today-trojan-node.htm" title="7月24日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">7月24日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-8-21.htm" title="8月21日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接">8月21日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-16-today-trojan-node.htm" title="8月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">8月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-10-free-trojan-node.htm" title="8月10日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">8月10日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-share-2026-9-3.htm" title="9月3日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接">9月3日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-share-2026-8-15.htm" title="8月15日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">8月15日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -418,10 +418,10 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>

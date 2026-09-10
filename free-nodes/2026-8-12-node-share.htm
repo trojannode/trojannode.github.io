@@ -156,19 +156,19 @@ opkg <span class="token function">install</span> luci-app-clash</pre></div><h2>�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
-    <div class="panel-body">
-        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的混淆插件有什么作用？</h5></div>
     <div class="panel-body">
         混淆插件用于伪装流量，使其看起来像普通的 HTTP 或 TLS 请求。常见类型有 plain、tls1.2_ticket_auth 等。合理设置混淆能有效降低被识别的风险，提升连接成功率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess MUX 功能如何改善短连接延迟？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么不同？</h5></div>
     <div class="panel-body">
-        VMess MUX 多路复用可以将多个短连接共享同一 TCP 或 QUIC 隧道，减少重复握手和连接延迟，特别适合游戏、即时通讯或频繁请求的场景，有效提升响应速度。<hr />    </div>
+        Nekoray 是一款基于 Qt 的跨平台代理前端，而 Nekobox 更偏向移动端简化使用。两者均支持 V2Ray/VLESS/Trojan 协议，但 Nekobox 提供了更轻量的界面和更快的连接启动速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 支持哪些传输层协议？</h5></div>
@@ -176,14 +176,19 @@ opkg <span class="token function">install</span> luci-app-clash</pre></div><h2>�
         V2Ray 支持多种传输层，包括 TCP、mKCP、WebSocket、gRPC、QUIC 等。每种传输方式都有不同的性能特点，例如 TCP 稳定、WS 兼容 CDN、QUIC 延迟低。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何配置 Clash 的 GEOIP 分流？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
     <div class="panel-body">
-        Clash 支持使用 GEOIP 数据库进行区域分流。用户在规则文件中添加 `GEOIP,CN,DIRECT` 可使国内流量直连，而国外流量走代理，从而提升整体网络性能。<hr />    </div>
+        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
+    <div class="panel-heading"><h5>WinXray 是否支持 VMess + TLS + WS 模式？</h5></div>
     <div class="panel-body">
-        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
+        是的，WinXray 支持该组合。用户需填写正确的 host、path、端口及证书验证方式。若节点来自订阅源，将自动识别相应参数；否则需手动输入与服务端一致的配置项。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess MUX 功能如何改善短连接延迟？</h5></div>
+    <div class="panel-body">
+        VMess MUX 多路复用可以将多个短连接共享同一 TCP 或 QUIC 隧道，减少重复握手和连接延迟，特别适合游戏、即时通讯或频繁请求的场景，有效提升响应速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
@@ -196,14 +201,9 @@ opkg <span class="token function">install</span> luci-app-clash</pre></div><h2>�
         WinXray 支持为不同流量类型指定不同出口，通过策略组和路由规则自动选择最佳节点。这样可以分散流量压力，提高连接稳定性，并确保高优先级应用获得最佳速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 是否支持 VMess + TLS + WS 模式？</h5></div>
+    <div class="panel-heading"><h5>如何配置 Clash 的 GEOIP 分流？</h5></div>
     <div class="panel-body">
-        是的，WinXray 支持该组合。用户需填写正确的 host、path、端口及证书验证方式。若节点来自订阅源，将自动识别相应参数；否则需手动输入与服务端一致的配置项。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么不同？</h5></div>
-    <div class="panel-body">
-        Nekoray 是一款基于 Qt 的跨平台代理前端，而 Nekobox 更偏向移动端简化使用。两者均支持 V2Ray/VLESS/Trojan 协议，但 Nekobox 提供了更轻量的界面和更快的连接启动速度。    </div>
+        Clash 支持使用 GEOIP 数据库进行区域分流。用户在规则文件中添加 `GEOIP,CN,DIRECT` 可使国内流量直连，而国外流量走代理，从而提升整体网络性能。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -251,15 +251,15 @@ opkg <span class="token function">install</span> luci-app-clash</pre></div><h2>�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-18-node-share.htm" title="8月18日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接">8月18日 | Trojan节点订阅每天更新19.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-trojan-node-share.htm" title="7月21日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接">7月21日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-subscribe-node.htm" title="8月2日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">8月2日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/trojan-node-share-2026-8-1.htm" title="8月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">8月1日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-trojan-node.htm" title="7月22日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接">7月22日 | Trojan节点订阅每天更新22.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-today-trojan-node.htm" title="7月24日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">7月24日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/trojan-node-github-2026-8-3.htm" title="8月3日 | Trojan节点订阅每天更新19.8M/S免费节点订阅链接">8月3日 | Trojan节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/trojan-windows-2026-7-31.htm" title="7月31日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接">7月31日 | Trojan节点订阅每天更新19.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-today-trojan-node.htm" title="8月22日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接">8月22日 | Trojan节点订阅每天更新22.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-github-2026-8-11.htm" title="8月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接">8月11日 | Trojan节点订阅每天更新20.7M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-8-21.htm" title="8月21日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接">8月21日 | Trojan节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-node-share.htm" title="8月20日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">8月20日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-10-free-trojan-node.htm" title="8月10日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">8月10日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-9.htm" title="8月9日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">8月9日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-28-node-share.htm" title="8月28日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接">8月28日 | Trojan节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-16-today-trojan-node.htm" title="8月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接">8月16日 | Trojan节点订阅每天更新22.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-trojan-node.htm" title="8月8日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接">8月8日 | Trojan节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-6-free-trojan-node.htm" title="8月6日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接">8月6日 | Trojan节点订阅每天更新20.1M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
@@ -272,10 +272,10 @@ opkg <span class="token function">install</span> luci-app-clash</pre></div><h2>�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
