@@ -279,24 +279,9 @@ Quantumult X本身为付费应用，去广告功能内置，不需额外付费�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 策略组如何优化视频和游戏流量？</h5></div>
-    <div class="panel-body">
-        Sing-box 可根据策略组和规则文件，将不同应用的流量分配到最佳节点。视频和游戏流量可选择低延迟、高带宽节点，保证流畅播放和操作响应，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 是否支持应用分流？</h5></div>
     <div class="panel-body">
         支持。Surfboard 可通过策略组和规则文件将不同应用流量分配到指定节点，保证游戏、视频和浏览器流量走最优节点，提高访问速度和网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
-    <div class="panel-body">
-        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 混淆方式如何提高抗封锁能力？</h5></div>
-    <div class="panel-body">
-        SSR 混淆可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆参数组合，可以提高节点稳定性和长期可用性，保证科学上网体验顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
@@ -304,9 +289,9 @@ Quantumult X本身为付费应用，去广告功能内置，不需额外付费�
         在服务器与客户端配置中设置合适的 SNI（伪装域名）并启用 ALPN（例如 http/1.1），确保 TLS 握手时使用常见的应用层协议标识，从而增加流量与普通 HTTPS 的相似度，降低被检测概率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的延迟测试如何影响策略组选择？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
     <div class="panel-body">
-        PassWall2 会根据节点延迟结果更新策略组的优先节点，自动选择延迟最低的节点处理流量。这样可以优化访问速度，提高网页浏览、视频和游戏体验的稳定性。<hr />    </div>
+        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
@@ -314,19 +299,34 @@ Quantumult X本身为付费应用，去广告功能内置，不需额外付费�
         在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
+    <div class="panel-body">
+        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 的 TLS+伪装模式适合什么情况？</h5></div>
+    <div class="panel-body">
+        TLS+伪装模式能隐藏真实流量特征，适用于封锁严格的环境。结合域名伪装和证书配置，可以使流量看似普通 HTTPS 请求，提高安全性和抗封锁能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 混淆方式如何提高抗封锁能力？</h5></div>
+    <div class="panel-body">
+        SSR 混淆可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆参数组合，可以提高节点稳定性和长期可用性，保证科学上网体验顺畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的延迟测试如何影响策略组选择？</h5></div>
+    <div class="panel-body">
+        PassWall2 会根据节点延迟结果更新策略组的优先节点，自动选择延迟最低的节点处理流量。这样可以优化访问速度，提高网页浏览、视频和游戏体验的稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 配置如何提高节点隐蔽性？</h5></div>
     <div class="panel-body">
         通过选择合适协议和混淆方式，将流量伪装成正常 HTTPS 或 HTTP 数据。可降低被 DPI 检测和封锁的风险，提高节点长期稳定性和科学上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 策略组如何优化视频和游戏流量？</h5></div>
     <div class="panel-body">
-        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 TLS+伪装模式适合什么情况？</h5></div>
-    <div class="panel-body">
-        TLS+伪装模式能隐藏真实流量特征，适用于封锁严格的环境。结合域名伪装和证书配置，可以使流量看似普通 HTTPS 请求，提高安全性和抗封锁能力。    </div>
+        Sing-box 可根据策略组和规则文件，将不同应用的流量分配到最佳节点。视频和游戏流量可选择低延迟、高带宽节点，保证流畅播放和操作响应，提高整体网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -374,16 +374,16 @@ Quantumult X本身为付费应用，去广告功能内置，不需额外付费�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-13.htm" title="10月13日 | Trojan节点订阅每天更新21M/S免费节点订阅链接">10月13日 | Trojan节点订阅每天更新21M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-10-7.htm" title="10月7日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接">10月7日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-5.htm" title="10月5日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接">10月5日 | Trojan节点订阅每天更新18.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-21.htm" title="9月21日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接">9月21日 | Trojan节点订阅每天更新21.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-17.htm" title="10月17日 | Trojan节点订阅每天更新18M/S免费节点订阅链接">10月17日 | Trojan节点订阅每天更新18M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-8-free-subscribe-node.htm" title="9月8日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接">9月8日 | Trojan节点订阅每天更新21.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-node-share.htm" title="9月30日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接">9月30日 | Trojan节点订阅每天更新21.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-8-node-share.htm" title="10月8日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接">10月8日 | Trojan节点订阅每天更新18.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-9-27.htm" title="9月27日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">9月27日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-trojan-node.htm" title="10月10日 | Trojan节点订阅每天更新23M/S免费节点订阅链接">10月10日 | Trojan节点订阅每天更新23M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-9-7.htm" title="9月7日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接">9月7日 | Trojan节点订阅每天更新18.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-1.htm" title="10月1日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接">10月1日 | Trojan节点订阅每天更新22.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/trojan-node-share-2026-9-9.htm" title="9月9日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接">9月9日 | Trojan节点订阅每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-today-trojan-node.htm" title="9月4日 | Trojan节点订阅每天更新22M/S免费节点订阅链接">9月4日 | Trojan节点订阅每天更新22M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-6-today-trojan-node.htm" title="10月6日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接">10月6日 | Trojan节点订阅每天更新22.7M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-22-free-subscribe-node.htm" title="9月22日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接">9月22日 | Trojan节点订阅每天更新18.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-13.htm" title="9月13日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接">9月13日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-10-7.htm" title="10月7日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接">10月7日 | Trojan节点订阅每天更新19.4M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -395,7 +395,7 @@ Quantumult X本身为付费应用，去广告功能内置，不需额外付费�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
